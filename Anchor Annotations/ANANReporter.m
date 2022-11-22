@@ -385,22 +385,24 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
             NSPoint idealPosition = NSMakePoint(position.x + textOffsetX, position.y + textOffsetY);
             CGFloat insetOriginY = 0.1 * baseFont.pointSize;
             CGFloat insetHeight = 0.2 * baseFont.pointSize + insetOriginY;
-            NSRect r = NSZeroRect;
-            r.origin = idealPosition;
-            r.origin.y += insetOriginY;
-            r.size = [annotation size];
-            r.size.height -= insetHeight;
+            NSRect rect = NSZeroRect;
+            rect.origin = idealPosition;
+            rect.origin.y += insetOriginY;
+            rect.size = [annotation size];
+            rect.size.height -= insetHeight;
             
             BOOL didShift = NO;
             NSInteger shiftCount = 0;
             do {
                 didShift = NO;
                 for (NSValue *otherRectValue in drawnRects) {
-                    NSRect c = [otherRectValue rectValue];
-                    if (NSMinX(r) < NSMaxX(c) && NSMaxX(r) > NSMinX(c)) {
-                        if (NSMinY(r) < NSMaxY(c) && NSMaxY(r) > NSMinY(c)) {
-                            CGFloat d = NSMaxY(r) - NSMinY(c);
-                            r.origin.y -= d * 1.01;
+                    NSRect otherRect = [otherRectValue rectValue];
+                    if (NSMinX(rect) < NSMaxX(otherRect) && NSMaxX(rect) > NSMinX(otherRect)) {
+                        if (NSMinY(rect) < NSMaxY(otherRect) && NSMaxY(rect) > NSMinY(otherRect)) {
+                            CGFloat delta = NSMaxY(rect) - NSMinY(otherRect);
+                            // shift by slightly more so that any rounding errors are mitigated
+                            // (otherwise, the next for loop might detect a miniscule, i.e. rounding error, overlap)
+                            rect.origin.y -= delta * 1.01;
                             didShift = YES;
                             shiftCount += 1;
                         }
@@ -414,15 +416,15 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
             if (shiftCount > 0) {
                 NSBezierPath *connector = [NSBezierPath new];
                 [connector moveToPoint:anchor.position];
-                [connector lineToPoint:NSMakePoint(anchor.position.x, r.origin.y + 0.4 * baseFont.pointSize)];
-                [connector lineToPoint:NSMakePoint(anchor.position.x + 2.0 * unit, r.origin.y + 0.4 * baseFont.pointSize)];
+                [connector lineToPoint:NSMakePoint(anchor.position.x, rect.origin.y + 0.4 * baseFont.pointSize)];
+                [connector lineToPoint:NSMakePoint(anchor.position.x + 2.0 * unit, rect.origin.y + 0.4 * baseFont.pointSize)];
                 connector.lineWidth = 0.7 * unit;
                 [[color colorWithAlphaComponent:0.4] setStroke];
                 [connector stroke];
             }
             
-            [drawnRects addObject:[NSValue valueWithRect:r]];
-            NSPoint textPosition = r.origin;
+            [drawnRects addObject:[NSValue valueWithRect:rect]];
+            NSPoint textPosition = rect.origin;
             textPosition.y -= insetOriginY;
             
             [annotation drawAtPoint:textPosition];
