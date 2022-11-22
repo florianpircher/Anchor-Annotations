@@ -23,6 +23,11 @@
 #import "ANANNameColor.h"
 #import "ANANPopupTableCellView.h"
 
+static NSString * const kUIIDColumnText = @"Text";
+static NSString * const kUIIDColumnAbbreviation = @"Abbr";
+static NSString * const kUIIDColumnName = @"Name";
+static NSString * const kUIIDColumnColor = @"Color";
+
 static void *abbreviationsContext = &abbreviationsContext;
 static void *namedColorsContext = &namedColorsContext;
 
@@ -130,19 +135,19 @@ static void *namedColorsContext = &namedColorsContext;
     [_colorsTableView reloadData];
     
     for (NSTableColumn *column in _abbreviationTableView.tableColumns) {
-        if ([column.identifier isEqualToString:@"Text"]) {
+        if ([column.identifier isEqualToString:kUIIDColumnText]) {
             column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
         }
-        else if ([column.identifier isEqualToString:@"Abbr"]) {
+        else if ([column.identifier isEqualToString:kUIIDColumnAbbreviation]) {
             column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(abbreviation)) ascending:YES];
         }
     }
     
     for (NSTableColumn *column in _colorsTableView.tableColumns) {
-        if ([column.identifier isEqualToString:@"Name"]) {
+        if ([column.identifier isEqualToString:kUIIDColumnName]) {
             column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(name)) ascending:YES];
         }
-        else if ([column.identifier isEqualToString:@"Color"]) {
+        else if ([column.identifier isEqualToString:kUIIDColumnColor]) {
             column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(colorId)) ascending:YES];
         }
     }
@@ -173,10 +178,10 @@ static void *namedColorsContext = &namedColorsContext;
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     if (tableView == _abbreviationTableView) {
-        if ([tableColumn.identifier isEqualToString:@"Text"]) {
+        if ([tableColumn.identifier isEqualToString:kUIIDColumnText]) {
             return _abbreviations[row].text;
         }
-        else if ([tableColumn.identifier isEqualToString:@"Abbr"]) {
+        else if ([tableColumn.identifier isEqualToString:kUIIDColumnAbbreviation]) {
             return _abbreviations[row].abbreviation;
         }
     }
@@ -188,28 +193,28 @@ static void *namedColorsContext = &namedColorsContext;
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     if (tableView == _abbreviationTableView) {
-        if ([tableColumn.identifier isEqualToString:@"Text"]) {
-            NSTableCellView *cellView = [_abbreviationTableView makeViewWithIdentifier:@"Text" owner:self];
+        if ([tableColumn.identifier isEqualToString:kUIIDColumnText]) {
+            NSTableCellView *cellView = [_abbreviationTableView makeViewWithIdentifier:kUIIDColumnText owner:self];
             cellView.textField.target = self;
             cellView.textField.action = @selector(updateAbbreviationText:);
             return cellView;
         }
-        else if ([tableColumn.identifier isEqualToString:@"Abbr"]) {
-            NSTableCellView *cellView = [_abbreviationTableView makeViewWithIdentifier:@"Abbr" owner:self];
+        else if ([tableColumn.identifier isEqualToString:kUIIDColumnAbbreviation]) {
+            NSTableCellView *cellView = [_abbreviationTableView makeViewWithIdentifier:kUIIDColumnAbbreviation owner:self];
             cellView.textField.target = self;
             cellView.textField.action = @selector(updateAbbreviationAbbr:);
             return cellView;
         }
     }
     else if (tableView == _colorsTableView) {
-        if ([tableColumn.identifier isEqualToString:@"Name"]) {
-            NSTableCellView *cellView = [_colorsTableView makeViewWithIdentifier:@"Name" owner:self];
+        if ([tableColumn.identifier isEqualToString:kUIIDColumnName]) {
+            NSTableCellView *cellView = [_colorsTableView makeViewWithIdentifier:kUIIDColumnName owner:self];
             cellView.textField.target = self;
             cellView.textField.action = @selector(updateName:);
             return cellView;
         }
-        else if ([tableColumn.identifier isEqualToString:@"Color"]) {
-            ANANPopupTableCellView *cellView = [_colorsTableView makeViewWithIdentifier:@"Color" owner:self];
+        else if ([tableColumn.identifier isEqualToString:kUIIDColumnColor]) {
+            ANANPopupTableCellView *cellView = [_colorsTableView makeViewWithIdentifier:kUIIDColumnColor owner:self];
             cellView.popupButton.target = self;
             cellView.popupButton.action = @selector(updateColor:);
             return cellView;
