@@ -105,7 +105,7 @@ static NSBundle *pluginBundle;
             [_abbreviations addObject:abbreviation];
         }
         
-        [_abbreviationTableView reloadData];
+        [self tableView:_abbreviationTableView sortDescriptorsDidChange:_abbreviationTableView.sortDescriptors];
     }
     else if (context == namedColorsContext) {
         NSDictionary<NSString *, NSNumber *> *nameColors = [NSUserDefaults.standardUserDefaults dictionaryForKey:kNameColorsKey];
@@ -119,7 +119,7 @@ static NSBundle *pluginBundle;
             [_nameColors addObject:nameColor];
         }
         
-        [_colorsTableView reloadData];
+        [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
     }
     else if (context == displayAnchorNamesContext) {
         _displayAnchorNames = [NSUserDefaults.standardUserDefaults boolForKey:kDisplayAnchorNamesKey];
@@ -141,11 +141,9 @@ static NSBundle *pluginBundle;
 - (void)viewDidLoad {
     _abbreviationTableView.delegate = self;
     _abbreviationTableView.dataSource = self;
-    [_abbreviationTableView reloadData];
     
     _colorsTableView.delegate = self;
     _colorsTableView.dataSource = self;
-    [_colorsTableView reloadData];
     
     for (NSTableColumn *column in _abbreviationTableView.tableColumns) {
         if ([column.identifier isEqualToString:kUIIDColumnText]) {
@@ -164,6 +162,9 @@ static NSBundle *pluginBundle;
             column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(colorId)) ascending:YES];
         }
     }
+    
+    [self tableView:_abbreviationTableView sortDescriptorsDidChange:_abbreviationTableView.sortDescriptors];
+    [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
 }
 
 - (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
