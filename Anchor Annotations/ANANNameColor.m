@@ -22,6 +22,22 @@
 
 @implementation ANANNameColor
 
+- (BOOL)isEqual:(ANANNameColor *)other {
+    if (other == self) {
+        return YES;
+    }
+    else if (other == nil || ![other isKindOfClass:[ANANNameColor class]]) {
+        return NO;
+    }
+    else {
+        return [_name isEqualToString:other.name] && _colorId == other.colorId;
+    }
+}
+
+- (NSUInteger)hash {
+    return _name.hash ^ _colorId;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"<ANANNameColor '%@': %ld>", _name, _colorId];
 }

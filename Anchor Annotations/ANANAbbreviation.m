@@ -21,6 +21,22 @@
 
 @implementation ANANAbbreviation
 
+- (BOOL)isEqual:(ANANAbbreviation *)other {
+    if (other == self) {
+        return YES;
+    }
+    else if (other == nil || ![other isKindOfClass:[ANANAbbreviation class]]) {
+        return NO;
+    }
+    else {
+        return [_text isEqualToString:other.text] && [_abbreviation isEqualToString:other.abbreviation];
+    }
+}
+
+- (NSUInteger)hash {
+    return _text.hash ^ _abbreviation.hash;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"<ANANAbbreviation '%@' -> '%@'>", _text, _abbreviation];
 }

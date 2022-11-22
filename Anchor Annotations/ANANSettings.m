@@ -246,29 +246,57 @@ static void *namedColorsContext = &namedColorsContext;
 - (IBAction)updateAbbreviationText:(NSTextField *)sender {
     NSInteger row = [_abbreviationTableView rowForView:sender];
     if (row == -1) return;
-    _abbreviations[row].text = [sender stringValue];
+    ANANAbbreviation *entry = _abbreviations[row];
+    entry.text = [sender stringValue];
     [self writeAbbreviations];
+    [self tableView:_abbreviationTableView sortDescriptorsDidChange:_abbreviationTableView.sortDescriptors];
+    NSInteger entryIndex = [_abbreviations indexOfObject:entry];
+    if (entryIndex != NSNotFound) {
+        [_abbreviationTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:entryIndex] byExtendingSelection:NO];
+        [_abbreviationTableView scrollRowToVisible:entryIndex];
+    }
 }
 
 - (IBAction)updateAbbreviationAbbr:(NSTextField *)sender {
     NSInteger row = [_abbreviationTableView rowForView:sender];
     if (row == -1) return;
-    _abbreviations[row].abbreviation = [sender stringValue];
+    ANANAbbreviation *entry = _abbreviations[row];
+    entry.abbreviation = [sender stringValue];
     [self writeAbbreviations];
+    [self tableView:_abbreviationTableView sortDescriptorsDidChange:_abbreviationTableView.sortDescriptors];
+    NSInteger entryIndex = [_abbreviations indexOfObject:entry];
+    if (entryIndex != NSNotFound) {
+        [_abbreviationTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:entryIndex] byExtendingSelection:NO];
+        [_abbreviationTableView scrollRowToVisible:entryIndex];
+    }
 }
 
 - (IBAction)updateName:(NSTextField *)sender {
     NSInteger row = [_colorsTableView rowForView:sender];
     if (row == -1) return;
-    _nameColors[row].name = [sender stringValue];
+    ANANNameColor *entry = _nameColors[row];
+    entry.name = [sender stringValue];
     [self writeNameColors];
+    [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
+    NSInteger entryIndex = [_nameColors indexOfObject:entry];
+    if (entryIndex != NSNotFound) {
+        [_colorsTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:entryIndex] byExtendingSelection:NO];
+        [_colorsTableView scrollRowToVisible:entryIndex];
+    }
 }
 
 - (IBAction)updateColor:(NSPopUpButton *)sender {
     NSInteger row = [_colorsTableView rowForView:sender];
     if (row == -1) return;
-    _nameColors[row].colorId = [sender selectedTag];
+    ANANNameColor *entry = _nameColors[row];
+    entry.colorId = [sender selectedTag];
     [self writeNameColors];
+    [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
+    NSInteger entryIndex = [_nameColors indexOfObject:entry];
+    if (entryIndex != NSNotFound) {
+        [_colorsTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:entryIndex] byExtendingSelection:NO];
+        [_colorsTableView scrollRowToVisible:entryIndex];
+    }
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
@@ -284,10 +312,16 @@ static void *namedColorsContext = &namedColorsContext;
 
 - (IBAction)addAbbreviation:(id)sender {
     ANANAbbreviation *newEntry = [ANANAbbreviation new];
-    newEntry.text = @"someText";
-    newEntry.abbreviation = @"abbr";
+    newEntry.text = NSLocalizedStringFromTableInBundle(@"newText", nil, pluginBundle, @"Initial text for a new abbreviation replacement pattern");
+    newEntry.abbreviation = NSLocalizedStringFromTableInBundle(@"newAbbr", nil, pluginBundle, @"Initial text for a new abbreviation");
     [_abbreviations addObject:newEntry];
     [self writeAbbreviations];
+    [self tableView:_abbreviationTableView sortDescriptorsDidChange:_abbreviationTableView.sortDescriptors];
+    NSInteger insertionIndex = [_abbreviations indexOfObject:newEntry];
+    if (insertionIndex != NSNotFound) {
+        [_abbreviationTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:insertionIndex] byExtendingSelection:NO];
+        [_abbreviationTableView editColumn:0 row:insertionIndex withEvent:nil select:YES];
+    }
 }
 
 - (IBAction)removeAbbreviation:(id)sender {
@@ -298,10 +332,16 @@ static void *namedColorsContext = &namedColorsContext;
 
 - (IBAction)addColor:(id)sender {
     ANANNameColor *newEntry = [ANANNameColor new];
-    newEntry.name = @"someName";
+    newEntry.name = NSLocalizedStringFromTableInBundle(@"newAnchorName", nil, pluginBundle, @"Initial text for a new anchor name");
     newEntry.colorId = 5;
     [_nameColors addObject:newEntry];
     [self writeNameColors];
+    [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
+    NSInteger insertionIndex = [_nameColors indexOfObject:newEntry];
+    if (insertionIndex != NSNotFound) {
+        [_colorsTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:insertionIndex] byExtendingSelection:NO];
+        [_colorsTableView editColumn:0 row:insertionIndex withEvent:nil select:YES];
+    }
 }
 
 - (IBAction)removeColor:(id)sender {
