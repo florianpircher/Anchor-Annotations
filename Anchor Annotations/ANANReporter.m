@@ -292,7 +292,7 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
     NSFont *baseFont = [NSFont fontWithDescriptor:baseFontDescriptor size:0];
     
     CGFloat textOffsetX = 3.0 * unit;
-    CGFloat textOffsetY = unit * (0.5 * _fontSize + 0.1 * baseFont.descender);
+    CGFloat textOffsetY = -0.5 * baseFont.pointSize;
     
     NSDictionary<NSString *, GSAnchor *> *anchors;
     NSSet<NSString *> *topLevelAnchors;
@@ -319,10 +319,24 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
         anchors = layer.anchors;
     }
     
+    NSArray<NSString *> *sortedAnchorNames = [anchors keysSortedByValueWithOptions:NSSortStable usingComparator:^NSComparisonResult(GSAnchor * _Nonnull a, GSAnchor * _Nonnull b) {
+        if (a.position.y < b.position.y) {
+            return NSOrderedDescending;
+        }
+        else if (a.position.y > b.position.y) {
+            return NSOrderedAscending;
+        }
+        else {
+            return NSOrderedSame;
+        }
+    }];
+    
     NSColor *canvasColor = _editViewController.graphicView.canvasColor ?: NSColor.textBackgroundColor;
     NSColor *strokeColor = [canvasColor colorWithAlphaComponent:0.7];
     
-    for (NSString *anchorName in anchors) {
+    NSMutableArray<NSValue *> *drawnRects = [NSMutableArray new];
+    
+    for (NSString *anchorName in sortedAnchorNames) {
         GSAnchor *anchor = anchors[anchorName];
         
         if ([layer.selection containsObject:anchor]) {
@@ -330,7 +344,7 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
         }
         
         BOOL isNestedAnchor = topLevelAnchors != nil && ![topLevelAnchors containsObject:anchorName];
-        NSColor *fillColor = [self colorForAnchorName:anchorName];
+        NSColor *color = [self colorForAnchorName:anchorName];
         NSPoint position = anchor.position;
         
         if (!isActive || isNestedAnchor) {
@@ -354,25 +368,68 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
             path.lineWidth = 2.0 * unit;
             [path stroke];
             path.lineWidth = 1.0 * unit;
-            [fillColor set];
+            [color set];
             [path stroke];
             [path fill];
         }
         
         if (_displayAnchorNames) {
             NSString *label = [self formatAnchorName:anchorName];
-            NSPoint textPosition = NSMakePoint(position.x + textOffsetX, position.y - textOffsetY);
             
             NSAttributedString *annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
                 NSFontAttributeName: baseFont,
                 NSStrokeColorAttributeName: strokeColor,
                 NSStrokeWidthAttributeName: @(unit * (100.0 / baseFont.pointSize)),
             }];
+            
+            NSPoint idealPosition = NSMakePoint(position.x + textOffsetX, position.y + textOffsetY);
+            CGFloat insetOriginY = 0.1 * baseFont.pointSize;
+            CGFloat insetHeight = 0.2 * baseFont.pointSize + insetOriginY;
+            NSRect r = NSZeroRect;
+            r.origin = idealPosition;
+            r.origin.y += insetOriginY;
+            r.size = [annotation size];
+            r.size.height -= insetHeight;
+            
+            BOOL didShift = NO;
+            NSInteger shiftCount = 0;
+            do {
+                didShift = NO;
+                for (NSValue *otherRectValue in drawnRects) {
+                    NSRect c = [otherRectValue rectValue];
+                    if (NSMinX(r) < NSMaxX(c) && NSMaxX(r) > NSMinX(c)) {
+                        if (NSMinY(r) < NSMaxY(c) && NSMaxY(r) > NSMinY(c)) {
+                            CGFloat d = NSMaxY(r) - NSMinY(c);
+                            r.origin.y -= d * 1.01;
+                            didShift = YES;
+                            shiftCount += 1;
+                        }
+                    }
+                }
+            } while (didShift && shiftCount < 16);
+            
+            if (shiftCount == 15) {
+                NSLog(@"Anchor Annotations: Error: did reach max shift count of %ld with anchor %@", shiftCount, anchor);
+            }
+            if (shiftCount > 0) {
+                NSBezierPath *connector = [NSBezierPath new];
+                [connector moveToPoint:anchor.position];
+                [connector lineToPoint:NSMakePoint(anchor.position.x, r.origin.y + 0.4 * baseFont.pointSize)];
+                [connector lineToPoint:NSMakePoint(anchor.position.x + 2.0 * unit, r.origin.y + 0.4 * baseFont.pointSize)];
+                connector.lineWidth = 0.7 * unit;
+                [[color colorWithAlphaComponent:0.4] setStroke];
+                [connector stroke];
+            }
+            
+            [drawnRects addObject:[NSValue valueWithRect:r]];
+            NSPoint textPosition = r.origin;
+            textPosition.y -= insetOriginY;
+            
             [annotation drawAtPoint:textPosition];
             
             annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
                 NSFontAttributeName: baseFont,
-                NSForegroundColorAttributeName: fillColor,
+                NSForegroundColorAttributeName: color,
             }];
             [annotation drawAtPoint:textPosition];
         }
