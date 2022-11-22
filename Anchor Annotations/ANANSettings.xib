@@ -204,11 +204,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="n4Z-YW-kYt">
-                                                <rect key="frame" x="8" y="0.0" width="88" height="24"/>
+                                                <rect key="frame" x="8" y="0.0" width="89" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHM-UJ-uXH">
-                                                        <rect key="frame" x="0.0" y="4" width="88" height="14"/>
+                                                        <rect key="frame" x="0.0" y="4" width="89" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="R3G-Ha-Scd">
                                                             <font key="font" metaFont="smallSystem"/>
@@ -258,7 +258,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="pLY-c0-RHm">
-                                                        <rect key="frame" x="2" y="5" width="85" height="14"/>
+                                                        <rect key="frame" x="1" y="5" width="87" height="14"/>
                                                         <popUpButtonCell key="cell" type="bevel" title="Text" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="bDx-wE-Le9" id="TyL-PI-eRG">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
@@ -285,9 +285,9 @@
                                                     </popUpButton>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="pLY-c0-RHm" firstAttribute="leading" secondItem="c3x-V3-IN0" secondAttribute="leading" constant="2" id="q8r-2R-iBu"/>
+                                                    <constraint firstItem="pLY-c0-RHm" firstAttribute="leading" secondItem="c3x-V3-IN0" secondAttribute="leading" constant="1" id="q8r-2R-iBu"/>
                                                     <constraint firstItem="pLY-c0-RHm" firstAttribute="centerY" secondItem="c3x-V3-IN0" secondAttribute="centerY" id="rmk-LV-heF"/>
-                                                    <constraint firstAttribute="trailing" secondItem="pLY-c0-RHm" secondAttribute="trailing" constant="2" id="w1J-Ah-1ja"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pLY-c0-RHm" secondAttribute="trailing" constant="1" id="w1J-Ah-1ja"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="popupButton" destination="pLY-c0-RHm" id="ZxT-9K-Zn8"/>
