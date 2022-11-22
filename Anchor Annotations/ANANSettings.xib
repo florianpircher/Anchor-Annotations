@@ -250,9 +250,8 @@
                                                 <rect key="frame" x="113.5" y="0.0" width="98" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pLY-c0-RHm">
-                                                        <rect key="frame" x="6" y="0.0" width="78" height="25"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="pLY-c0-RHm">
+                                                        <rect key="frame" x="2" y="5" width="94" height="14"/>
                                                         <popUpButtonCell key="cell" type="bevel" title="Text" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" selectedItem="bDx-wE-Le9" id="TyL-PI-eRG">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
@@ -278,6 +277,11 @@
                                                         </connections>
                                                     </popUpButton>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="pLY-c0-RHm" firstAttribute="leading" secondItem="c3x-V3-IN0" secondAttribute="leading" constant="2" id="q8r-2R-iBu"/>
+                                                    <constraint firstItem="pLY-c0-RHm" firstAttribute="centerY" secondItem="c3x-V3-IN0" secondAttribute="centerY" id="rmk-LV-heF"/>
+                                                    <constraint firstAttribute="trailing" secondItem="pLY-c0-RHm" secondAttribute="trailing" constant="2" id="w1J-Ah-1ja"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="popupButton" destination="pLY-c0-RHm" id="ZxT-9K-Zn8"/>
                                                 </connections>
