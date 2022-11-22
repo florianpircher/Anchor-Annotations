@@ -30,6 +30,9 @@ static NSString * const kUIIDColumnColor = @"Color";
 
 static void *abbreviationsContext = &abbreviationsContext;
 static void *namedColorsContext = &namedColorsContext;
+static void *displayAnchorNamesContext = &displayAnchorNamesContext;
+
+static NSBundle *pluginBundle;
 
 @interface ANANSettings ()
 @property (strong) IBOutlet NSTableView *abbreviationTableView;
@@ -39,6 +42,7 @@ static void *namedColorsContext = &namedColorsContext;
 
 @property (strong) NSMutableArray<ANANAbbreviation *> *abbreviations;
 @property (strong) NSMutableArray<ANANNameColor *> *nameColors;
+@property (assign) BOOL displayAnchorNames;
 @end
 
 @implementation ANANSettings
@@ -47,17 +51,17 @@ static void *namedColorsContext = &namedColorsContext;
     static ANANSettings *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        pluginBundle = [NSBundle bundleForClass:[self class]];
         sharedInstance = [ANANSettings new];
     });
     return sharedInstance;
 }
 
 - (id)init {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    self = [super initWithNibName:@"ANANSettings" bundle:bundle];
+    self = [super initWithNibName:@"ANANSettings" bundle:pluginBundle];
     
     if (self != nil) {
-        self.title = NSLocalizedStringFromTableInBundle(@"Anchor Annotations", nil, bundle, @"Title of the Anchor Annotations tab in settings");
+        self.title = NSLocalizedStringFromTableInBundle(@"Anchor Annotations", nil, pluginBundle, @"Title of the Anchor Annotations tab in settings");
         self.representedObject = @"link";
         
         _abbreviations = [NSMutableArray new];
@@ -72,6 +76,10 @@ static void *namedColorsContext = &namedColorsContext;
                              forKeyPath:[@"values." stringByAppendingString:kNameColorsKey]
                                 options:NSKeyValueObservingOptionInitial
                                 context:namedColorsContext];
+        [defaultsController addObserver:self
+                             forKeyPath:[@"values." stringByAppendingString:kDisplayAnchorNamesKey]
+                                options:NSKeyValueObservingOptionInitial
+                                context:displayAnchorNamesContext];
     }
     
     return self;
@@ -81,6 +89,7 @@ static void *namedColorsContext = &namedColorsContext;
     NSUserDefaultsController *defaultsController = NSUserDefaultsController.sharedUserDefaultsController;
     [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kAbbreviationsKey]];
     [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kNameColorsKey]];
+    [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kDisplayAnchorNamesKey]];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -111,6 +120,10 @@ static void *namedColorsContext = &namedColorsContext;
         }
         
         [_colorsTableView reloadData];
+    }
+    else if (context == displayAnchorNamesContext) {
+        _displayAnchorNames = [NSUserDefaults.standardUserDefaults boolForKey:kDisplayAnchorNamesKey];
+        [self updateDisplayForTableView:_abbreviationTableView];
     }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -299,15 +312,18 @@ static void *namedColorsContext = &namedColorsContext;
     }
 }
 
-- (void)tableViewSelectionDidChange:(NSNotification *)notification {
-    NSTableView *tableView = notification.object;
-    
+- (void)updateDisplayForTableView:(NSTableView *)tableView {
     if (tableView == _abbreviationTableView) {
-        _removeAbbreviationButton.enabled = tableView.selectedRowIndexes.count > 0;
+        _removeAbbreviationButton.enabled = tableView.selectedRowIndexes.count > 0 && _displayAnchorNames;
     }
     else if (tableView == _colorsTableView) {
         _removeColorButton.enabled = tableView.selectedRowIndexes.count > 0;
     }
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification {
+    NSTableView *tableView = notification.object;
+    [self updateDisplayForTableView:tableView];
 }
 
 - (IBAction)addAbbreviation:(id)sender {
@@ -328,6 +344,7 @@ static void *namedColorsContext = &namedColorsContext;
     NSIndexSet *indexSet = _abbreviationTableView.selectedRowIndexes;
     [_abbreviations removeObjectsAtIndexes:indexSet];
     [self writeAbbreviations];
+    [self updateDisplayForTableView:_abbreviationTableView];
 }
 
 - (IBAction)addColor:(id)sender {
@@ -348,6 +365,7 @@ static void *namedColorsContext = &namedColorsContext;
     NSIndexSet *indexSet = _colorsTableView.selectedRowIndexes;
     [_nameColors removeObjectsAtIndexes:indexSet];
     [self writeNameColors];
+    [self updateDisplayForTableView:_colorsTableView];
 }
 
 @end
