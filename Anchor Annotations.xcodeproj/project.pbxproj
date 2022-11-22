@@ -11,10 +11,12 @@
 		1703C005292C223500A9A24D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1703C004292C223500A9A24D /* Cocoa.framework */; };
 		1703C007292C223900A9A24D /* GlyphsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1703C006292C223900A9A24D /* GlyphsCore.framework */; };
 		17BE8DE1292C3F7500BDC95C /* ANANSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BE8DDF292C3F7500BDC95C /* ANANSettings.m */; };
-		17BE8DE2292C3F7500BDC95C /* ANANSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BE8DE0292C3F7500BDC95C /* ANANSettings.xib */; };
 		17BE8DE5292C553600BDC95C /* ANANAbbreviation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BE8DE4292C553600BDC95C /* ANANAbbreviation.m */; };
 		17BE8DE8292C559D00BDC95C /* ANANNameColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BE8DE7292C559D00BDC95C /* ANANNameColor.m */; };
 		17BE8DEB292C6D5700BDC95C /* ANANPopupTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BE8DEA292C6D5700BDC95C /* ANANPopupTableCellView.m */; };
+		17BE8E33292D497B00BDC95C /* ANANSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17BE8E35292D497B00BDC95C /* ANANSettings.xib */; };
+		17BE8E3A292D49ED00BDC95C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17BE8E3C292D49ED00BDC95C /* Localizable.strings */; };
+		17BE8E42292D553000BDC95C /* Reporter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17BE8E44292D553000BDC95C /* Reporter.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +27,18 @@
 		1703C006292C223900A9A24D /* GlyphsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GlyphsCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BE8DDE292C3F7500BDC95C /* ANANSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ANANSettings.h; path = "Anchor Annotations/ANANSettings.h"; sourceTree = "<group>"; };
 		17BE8DDF292C3F7500BDC95C /* ANANSettings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ANANSettings.m; path = "Anchor Annotations/ANANSettings.m"; sourceTree = "<group>"; };
-		17BE8DE0292C3F7500BDC95C /* ANANSettings.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ANANSettings.xib; path = "Anchor Annotations/ANANSettings.xib"; sourceTree = "<group>"; };
 		17BE8DE3292C553600BDC95C /* ANANAbbreviation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ANANAbbreviation.h; path = "Anchor Annotations/ANANAbbreviation.h"; sourceTree = "<group>"; };
 		17BE8DE4292C553600BDC95C /* ANANAbbreviation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ANANAbbreviation.m; path = "Anchor Annotations/ANANAbbreviation.m"; sourceTree = "<group>"; };
 		17BE8DE6292C559D00BDC95C /* ANANNameColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ANANNameColor.h; path = "Anchor Annotations/ANANNameColor.h"; sourceTree = "<group>"; };
 		17BE8DE7292C559D00BDC95C /* ANANNameColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ANANNameColor.m; path = "Anchor Annotations/ANANNameColor.m"; sourceTree = "<group>"; };
 		17BE8DE9292C6D5700BDC95C /* ANANPopupTableCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ANANPopupTableCellView.h; path = "Anchor Annotations/ANANPopupTableCellView.h"; sourceTree = "<group>"; };
 		17BE8DEA292C6D5700BDC95C /* ANANPopupTableCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ANANPopupTableCellView.m; path = "Anchor Annotations/ANANPopupTableCellView.m"; sourceTree = "<group>"; };
+		17BE8E34292D497B00BDC95C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ANANSettings.xib; sourceTree = "<group>"; };
+		17BE8E3B292D49ED00BDC95C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		17BE8E3D292D49EF00BDC95C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		17BE8E3F292D4D4D00BDC95C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ANANSettings.strings; sourceTree = "<group>"; };
+		17BE8E43292D553000BDC95C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Reporter.strings; sourceTree = "<group>"; };
+		17BE8E45292D553200BDC95C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Reporter.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,13 +61,15 @@
 				1703BFBA292C219E00A9A24D /* ANANReporter.m */,
 				17BE8DDE292C3F7500BDC95C /* ANANSettings.h */,
 				17BE8DDF292C3F7500BDC95C /* ANANSettings.m */,
-				17BE8DE0292C3F7500BDC95C /* ANANSettings.xib */,
+				17BE8E35292D497B00BDC95C /* ANANSettings.xib */,
 				17BE8DE3292C553600BDC95C /* ANANAbbreviation.h */,
 				17BE8DE4292C553600BDC95C /* ANANAbbreviation.m */,
 				17BE8DE6292C559D00BDC95C /* ANANNameColor.h */,
 				17BE8DE7292C559D00BDC95C /* ANANNameColor.m */,
 				17BE8DE9292C6D5700BDC95C /* ANANPopupTableCellView.h */,
 				17BE8DEA292C6D5700BDC95C /* ANANPopupTableCellView.m */,
+				17BE8E3C292D49ED00BDC95C /* Localizable.strings */,
+				17BE8E44292D553000BDC95C /* Reporter.strings */,
 				1703BFB3292C20DB00A9A24D /* Products */,
 				1703C003292C223500A9A24D /* Frameworks */,
 			);
@@ -124,6 +133,19 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				cs,
+				de,
+				fr,
+				it,
+				ja,
+				ko,
+				"pt-BR",
+				ru,
+				es,
+				tr,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 1703BFA9292C20DB00A9A24D;
 			productRefGroup = 1703BFB3292C20DB00A9A24D /* Products */;
@@ -140,7 +162,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17BE8DE2292C3F7500BDC95C /* ANANSettings.xib in Resources */,
+				17BE8E33292D497B00BDC95C /* ANANSettings.xib in Resources */,
+				17BE8E3A292D49ED00BDC95C /* Localizable.strings in Resources */,
+				17BE8E42292D553000BDC95C /* Reporter.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +184,38 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		17BE8E35292D497B00BDC95C /* ANANSettings.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17BE8E34292D497B00BDC95C /* Base */,
+				17BE8E3F292D4D4D00BDC95C /* de */,
+			);
+			name = ANANSettings.xib;
+			path = "Anchor Annotations";
+			sourceTree = "<group>";
+		};
+		17BE8E3C292D49ED00BDC95C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17BE8E3B292D49ED00BDC95C /* en */,
+				17BE8E3D292D49EF00BDC95C /* de */,
+			);
+			name = Localizable.strings;
+			path = "Anchor Annotations";
+			sourceTree = "<group>";
+		};
+		17BE8E44292D553000BDC95C /* Reporter.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17BE8E43292D553000BDC95C /* en */,
+				17BE8E45292D553200BDC95C /* de */,
+			);
+			name = Reporter.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1703BFB4292C20DB00A9A24D /* Debug */ = {

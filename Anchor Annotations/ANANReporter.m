@@ -247,7 +247,7 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
 
 - (NSString *)title {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    return NSLocalizedStringFromTableInBundle(@"Anchor Annotations", nil, bundle, @"Title of the menu item to activate the plugin in the format “Show …”");
+    return NSLocalizedStringFromTableInBundle(@"Anchor Annotations", @"Reporter", bundle, @"Title of the menu item to activate the plugin in the format “Show …”");
 }
 
 - (NSString *)keyEquivalent {
