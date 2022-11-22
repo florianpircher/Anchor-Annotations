@@ -1,5 +1,5 @@
 //
-//  ANANReporter.h
+//  ANANSettings.h
 //  Anchor Annotations
 //
 //  Copyright 2022 Florian Pircher
@@ -18,19 +18,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <GlyphsCore/GlyphsReporterProtocol.h>
+#import <GlyphsCore/GlyphsPluginProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-static NSString * const kIncludeInactiveLayersKey = @"AnchorAnnotationsIncludeInactiveLayers";
-static NSString * const kIncludeNestedAnchorsKey = @"AnchorAnnotationsIncludeNestedAnchors";
-static NSString * const kDisplayAnchorNamesKey = @"AnchorAnnotationsDisplayAnchorNames";
-static NSString * const kFontSizeKey = @"AnchorAnnotationsFontSize";
-static NSString * const kGeneralColorKey = @"AnchorAnnotationsGeneralColor";
-static NSString * const kNameColorsKey = @"AnchorAnnotationsNameColors";
-static NSString * const kAbbreviationsKey = @"AnchorAnnotationsAbbreviations";
+@interface ANANSettings : NSViewController <GlyphsPlugin, NSTableViewDelegate, NSTableViewDataSource>
 
-@interface ANANReporter : NSObject <GlyphsReporter>
++ (instancetype)sharedSettings;
 
 @end
 
