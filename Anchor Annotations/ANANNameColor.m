@@ -18,7 +18,6 @@
 //
 
 #import "ANANNameColor.h"
-#import <GlyphsKit/NSFontHelpers.h>
 
 @implementation ANANNameColor
 
