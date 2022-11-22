@@ -293,7 +293,7 @@ static void *abbreviationsContext = &abbreviationsContext;
     }
     
     NSColor *canvasColor = _editViewController.graphicView.canvasColor ?: NSColor.textBackgroundColor;
-    NSColor *strokeColor = [canvasColor colorWithAlphaComponent:0.5];
+    NSColor *strokeColor = [canvasColor colorWithAlphaComponent:0.7];
     
     for (NSString *anchorName in anchors) {
         GSAnchor *anchor = anchors[anchorName];
