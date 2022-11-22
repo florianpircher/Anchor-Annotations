@@ -128,6 +128,35 @@ static void *namedColorsContext = &namedColorsContext;
     _colorsTableView.delegate = self;
     _colorsTableView.dataSource = self;
     [_colorsTableView reloadData];
+    
+    for (NSTableColumn *column in _abbreviationTableView.tableColumns) {
+        if ([column.identifier isEqualToString:@"Text"]) {
+            column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
+        }
+        else if ([column.identifier isEqualToString:@"Abbr"]) {
+            column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(abbreviation)) ascending:YES];
+        }
+    }
+    
+    for (NSTableColumn *column in _colorsTableView.tableColumns) {
+        if ([column.identifier isEqualToString:@"Name"]) {
+            column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(name)) ascending:YES];
+        }
+        else if ([column.identifier isEqualToString:@"Color"]) {
+            column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(colorId)) ascending:YES];
+        }
+    }
+}
+
+- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
+    if (tableView == _abbreviationTableView) {
+        [_abbreviations sortUsingDescriptors:tableView.sortDescriptors];
+        [_abbreviationTableView reloadData];
+    }
+    else if (tableView == _colorsTableView) {
+        [_nameColors sortUsingDescriptors:tableView.sortDescriptors];
+        [_colorsTableView reloadData];
+    }
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {

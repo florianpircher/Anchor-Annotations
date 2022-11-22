@@ -25,4 +25,20 @@
     return [NSString stringWithFormat:@"<ANANAbbreviation '%@' -> '%@'>", _text, _abbreviation];
 }
 
+- (NSComparisonResult)compare:(ANANAbbreviation *)other {
+    if (![other isKindOfClass:[ANANAbbreviation class]]) {
+        return NSOrderedSame;
+    }
+    
+    if (_text.length < other.text.length) {
+        return NSOrderedDescending;
+    }
+    else if (_text.length > other.text.length) {
+        return NSOrderedAscending;
+    }
+    else {
+        return [_text localizedCompare:other.text];
+    }
+}
+
 @end
