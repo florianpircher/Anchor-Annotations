@@ -451,6 +451,7 @@
                     </constraints>
                     <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="50" maxValue="100" doubleValue="80" tickMarkPosition="above" numberOfTickMarks="6" allowsTickMarkValuesOnly="YES" sliderType="linear" id="5AE-lx-inj"/>
                     <connections>
+                        <binding destination="tIo-9D-6eQ" name="enabled" keyPath="values.AnchorAnnotationsDisplayAnchorNames" id="FAe-J7-8YC"/>
                         <binding destination="tIo-9D-6eQ" name="value" keyPath="values.AnchorAnnotationsFontWidth" id="kdZ-iP-TD8"/>
                     </connections>
                 </slider>
