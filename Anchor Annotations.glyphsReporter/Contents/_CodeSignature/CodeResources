@@ -4,19 +4,163 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/ANANSettings.nib</key>
+		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects-101300.nib</key>
 		<data>
-		3OIbaSwWy2A4aSG6nczAJHRB2tY=
+		Eq1IVEqk62eqOqZvK1ej3lf3DPA=
 		</data>
+		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects-110000.nib</key>
+		<data>
+		Tew2mVs23fCEoHEgdmbqXhIXfMs=
+		</data>
+		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects.nib</key>
+		<data>
+		r70atvO0F9Ki0JRPjw1LUFQ1qXI=
+		</data>
+		<key>Resources/de.lproj/ANANSettings.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EgkfSlfaha6VQQRkNIXCLi/6kTc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/de.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/UIMn7uMX//RQq56roH0zdL55dA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/de.lproj/Reporter.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			S2/CN83B//q0BbWXzykc2LYJp6U=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vAsWNy0W1lVeRl8t0xl7Up0D5kE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/en.lproj/Reporter.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QIsLE4izw+FCfTBP0m1g7mdQv7E=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Resources/ANANSettings.nib</key>
+		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects-101300.nib</key>
 		<dict>
+			<key>hash</key>
+			<data>
+			Eq1IVEqk62eqOqZvK1ej3lf3DPA=
+			</data>
 			<key>hash2</key>
 			<data>
-			mxh3opE99KvUJzhkXSH1RmheRbAIgLmmajEegD+z8yU=
+			otUY3Bw/T2y4NYkVl3pfJec1OyMsX6ARIfsOLFrOfDQ=
 			</data>
+		</dict>
+		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects-110000.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Tew2mVs23fCEoHEgdmbqXhIXfMs=
+			</data>
+			<key>hash2</key>
+			<data>
+			sldZ21/EVq4qWI/yla5z1byusObT2hVHzfY0+WS7uDg=
+			</data>
+		</dict>
+		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects.nib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			r70atvO0F9Ki0JRPjw1LUFQ1qXI=
+			</data>
+			<key>hash2</key>
+			<data>
+			a96mq0ILJxgQ8lhfkAQcIDH+s3p+lxs/UAHESWjMvy8=
+			</data>
+		</dict>
+		<key>Resources/de.lproj/ANANSettings.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			EgkfSlfaha6VQQRkNIXCLi/6kTc=
+			</data>
+			<key>hash2</key>
+			<data>
+			6fVcOPJ4LLGossEjeyEkW1EQRRoSWfiu7M6zEO+3VxA=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/de.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/UIMn7uMX//RQq56roH0zdL55dA=
+			</data>
+			<key>hash2</key>
+			<data>
+			VBnkfa0UNcgFPVQ4w6yJHB+g478IwzBll4NUcHsr2nE=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/de.lproj/Reporter.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			S2/CN83B//q0BbWXzykc2LYJp6U=
+			</data>
+			<key>hash2</key>
+			<data>
+			0YXsmwGiPC0FckJAJuVFxMf8vKDlD+Nd9097OtBb9Fc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/en.lproj/Localizable.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			vAsWNy0W1lVeRl8t0xl7Up0D5kE=
+			</data>
+			<key>hash2</key>
+			<data>
+			65Bk684z5uMWAaDZSUME6VWrw0bREVAutm0O76Skef8=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/en.lproj/Reporter.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QIsLE4izw+FCfTBP0m1g7mdQv7E=
+			</data>
+			<key>hash2</key>
+			<data>
+			ZvZddI+lP0A0Marw2x+YQ9hEgprMjIS/Nf+7oN6xxFQ=
+			</data>
+			<key>optional</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>rules</key>

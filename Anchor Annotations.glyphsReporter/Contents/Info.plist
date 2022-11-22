@@ -41,7 +41,7 @@
 	<key>DTXcodeBuild</key>
 	<string>14A309</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>12.3</string>
+	<string>10.11</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright 2021 Florian Pircher</string>
 	<key>NSPrincipalClass</key>
