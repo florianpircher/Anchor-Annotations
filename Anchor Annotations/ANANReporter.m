@@ -235,7 +235,6 @@ static void *abbreviationsContext = &abbreviationsContext;
     CGFloat scale = [options[kGlyphsDrawOptionScaleKey] doubleValue];
     CGFloat unit = 1.0 / scale;
     
-    NSAffineTransform *baseFontTransform = [NSAffineTransform transform];
     NSFontDescriptor *baseFontDescriptor = [[NSFont systemFontOfSize:_fontSize * unit].fontDescriptor fontDescriptorByAddingAttributes:@{
         NSFontFeatureSettingsAttribute: @[
             @{
