@@ -62,9 +62,7 @@ static void *abbreviationsContext = &abbreviationsContext;
             kDisplayAnchorNamesKey: @YES,
             kFontSizeKey: @10,
             kGeneralColorKey: @1,
-            kNameColorsKey: @{
-                
-            },
+            kNameColorsKey: @{},
             kAbbreviationsKey: @{
                 @"top": @"↑",
                 @"bottom": @"↓",
