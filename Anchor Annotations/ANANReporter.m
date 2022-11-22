@@ -65,15 +65,12 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
             kIncludeNestedAnchorsKey: @YES,
             kDisplayAnchorNamesKey: @YES,
             kFontSizeKey: @13,
-            kFontWidthKey: @80,
+            kFontWidthKey: @90,
             kGeneralColorKey: @1,
             kNameColorsKey: @{},
             kAbbreviationsKey: @{
                 @"top": @"↑",
                 @"bottom": @"↓",
-                @"left": @"←",
-                @"right": @"→",
-                @"center": @"×",
             },
             kAbbreviationsAreCaseInsensitiveKey: @YES,
         }];
