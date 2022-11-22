@@ -433,9 +433,8 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pt3-eT-aX8">
+                <button toolTip="Apply abbreviation substitutions regardless of capitalization" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pt3-eT-aX8">
                     <rect key="frame" x="119" y="22" width="124" height="18"/>
-                    <string key="toolTip">Apply abbreviation substitutions regardless of capitalization (for example, an abbreviation for “bottom” also replaces “Bottom”)</string>
                     <buttonCell key="cell" type="check" title="Case insensitive" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kfw-l3-KdD">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
