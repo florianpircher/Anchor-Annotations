@@ -115,6 +115,9 @@
                                         </prototypeCellViews>
                                     </tableColumn>
                                 </tableColumns>
+                                <connections>
+                                    <binding destination="tIo-9D-6eQ" name="enabled" keyPath="values.AnchorAnnotationsDisplayAnchorNames" id="qlb-L9-haQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                     </clipView>
@@ -143,6 +146,7 @@
                     </buttonCell>
                     <connections>
                         <action selector="addAbbreviation:" target="-2" id="Ko7-9m-ups"/>
+                        <binding destination="tIo-9D-6eQ" name="enabled" keyPath="values.AnchorAnnotationsDisplayAnchorNames" id="MVR-wW-DFb"/>
                     </connections>
                 </button>
                 <button toolTip="Delete selected abbreviations" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i90-RS-OwI">
@@ -243,7 +247,7 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="c3x-V3-IN0" customClass="ANANPopupTableCellView">
-                                                <rect key="frame" x="114" y="0.0" width="98" height="24"/>
+                                                <rect key="frame" x="113.5" y="0.0" width="98" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pLY-c0-RHm">
@@ -384,6 +388,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <binding destination="tIo-9D-6eQ" name="enabled" keyPath="values.AnchorAnnotationsDisplayAnchorNames" id="zIZ-8g-01H"/>
                         <binding destination="tIo-9D-6eQ" name="value" keyPath="values.AnchorAnnotationsFontSize" id="iOy-al-6BY"/>
                     </connections>
                 </textField>
@@ -428,6 +433,36 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pt3-eT-aX8">
+                    <rect key="frame" x="119" y="22" width="124" height="18"/>
+                    <string key="toolTip">Apply abbreviation substitutions regardless of capitalization (for example, an abbreviation for “bottom” also replaces “Bottom”)</string>
+                    <buttonCell key="cell" type="check" title="Case insensitive" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kfw-l3-KdD">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="tIo-9D-6eQ" name="enabled" keyPath="values.AnchorAnnotationsDisplayAnchorNames" id="aSB-Lv-Cuh"/>
+                        <binding destination="tIo-9D-6eQ" name="value" keyPath="values.AnchorAnnotationsAbbreviationsAreCaseInsensitive" id="zGS-9s-lIu"/>
+                    </connections>
+                </button>
+                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-xu-AHb">
+                    <rect key="frame" x="290" y="287" width="96" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="92" id="Yta-e3-efP"/>
+                    </constraints>
+                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="50" maxValue="100" doubleValue="80" tickMarkPosition="above" numberOfTickMarks="6" allowsTickMarkValuesOnly="YES" sliderType="linear" id="5AE-lx-inj"/>
+                    <connections>
+                        <binding destination="tIo-9D-6eQ" name="value" keyPath="values.AnchorAnnotationsFontWidth" id="kdZ-iP-TD8"/>
+                    </connections>
+                </slider>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JxB-rg-g7t">
+                    <rect key="frame" x="242" y="295" width="44" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Width:" id="FOr-Lz-x8t">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstItem="4De-8e-b8M" firstAttribute="leading" secondItem="Ulh-NQ-j23" secondAttribute="trailing" constant="8" symbolic="YES" id="1Gz-e2-GcQ"/>
@@ -435,7 +470,10 @@
                 <constraint firstItem="Ulh-NQ-j23" firstAttribute="leading" secondItem="Nyp-Ut-73j" secondAttribute="leading" id="3ci-qn-BeX"/>
                 <constraint firstItem="hCE-8v-aVa" firstAttribute="leading" secondItem="Qg0-Ie-zdh" secondAttribute="trailing" constant="2" id="45h-m4-WKH"/>
                 <constraint firstItem="ykC-hg-AXu" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" priority="999" id="8jW-Vt-MjX"/>
+                <constraint firstItem="Pt3-eT-aX8" firstAttribute="centerY" secondItem="i90-RS-OwI" secondAttribute="centerY" id="8tE-Qv-NY7"/>
                 <constraint firstItem="Qg0-Ie-zdh" firstAttribute="centerY" secondItem="fnm-PB-eDJ" secondAttribute="centerY" id="962-rt-RsA"/>
+                <constraint firstItem="JxB-rg-g7t" firstAttribute="firstBaseline" secondItem="Xmt-Ep-tjb" secondAttribute="firstBaseline" id="Bhj-uw-Edh"/>
+                <constraint firstItem="fHd-xu-AHb" firstAttribute="centerY" secondItem="JxB-rg-g7t" secondAttribute="centerY" id="GAW-7v-W6d"/>
                 <constraint firstItem="Xmt-Ep-tjb" firstAttribute="firstBaseline" secondItem="4IA-nx-X0A" secondAttribute="firstBaseline" id="Koo-cd-Jai"/>
                 <constraint firstItem="Ulh-NQ-j23" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="MXp-6V-TEf"/>
                 <constraint firstItem="i90-RS-OwI" firstAttribute="leading" secondItem="fnm-PB-eDJ" secondAttribute="trailing" constant="2" id="OCk-0m-C9Z"/>
@@ -451,7 +489,9 @@
                 <constraint firstItem="fnm-PB-eDJ" firstAttribute="leading" secondItem="Ulh-NQ-j23" secondAttribute="leading" id="bj6-PW-dVt"/>
                 <constraint firstItem="Qg0-Ie-zdh" firstAttribute="top" secondItem="4De-8e-b8M" secondAttribute="bottom" constant="6" id="cBS-7c-Ifp"/>
                 <constraint firstItem="JbH-zN-Gff" firstAttribute="leading" secondItem="cRm-9D-Ikm" secondAttribute="trailing" constant="8" symbolic="YES" id="dOO-y2-eOp"/>
+                <constraint firstItem="fHd-xu-AHb" firstAttribute="leading" secondItem="JxB-rg-g7t" secondAttribute="trailing" constant="8" symbolic="YES" id="f9m-Fi-fCs"/>
                 <constraint firstItem="Ulh-NQ-j23" firstAttribute="top" secondItem="Nyp-Ut-73j" secondAttribute="bottom" constant="8" symbolic="YES" id="gml-Te-KIz"/>
+                <constraint firstItem="Pt3-eT-aX8" firstAttribute="trailing" secondItem="Ulh-NQ-j23" secondAttribute="trailing" id="h07-31-JtO"/>
                 <constraint firstAttribute="trailing" secondItem="4De-8e-b8M" secondAttribute="trailing" constant="20" symbolic="YES" id="igS-qQ-IIS"/>
                 <constraint firstItem="JbH-zN-Gff" firstAttribute="top" secondItem="4IA-nx-X0A" secondAttribute="bottom" constant="12" id="iuQ-u3-ovn"/>
                 <constraint firstItem="Xmt-Ep-tjb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="muc-Xh-LbL"/>
@@ -459,9 +499,12 @@
                 <constraint firstItem="4IA-nx-X0A" firstAttribute="leading" secondItem="ykC-hg-AXu" secondAttribute="leading" id="oyN-uW-Tm7"/>
                 <constraint firstItem="Ulh-NQ-j23" firstAttribute="width" secondItem="4De-8e-b8M" secondAttribute="width" id="pFM-x9-LaN"/>
                 <constraint firstItem="4IA-nx-X0A" firstAttribute="leading" secondItem="Xmt-Ep-tjb" secondAttribute="trailing" constant="8" symbolic="YES" id="qAJ-Va-VxD"/>
+                <constraint firstItem="Pt3-eT-aX8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i90-RS-OwI" secondAttribute="trailing" constant="8" symbolic="YES" id="qpb-LB-hX1"/>
                 <constraint firstItem="Qg0-Ie-zdh" firstAttribute="leading" secondItem="4De-8e-b8M" secondAttribute="leading" id="quT-5t-GtG"/>
                 <constraint firstItem="ykC-hg-AXu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="sR5-yF-wdV"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fHd-xu-AHb" secondAttribute="trailing" constant="20" symbolic="YES" id="xFi-aM-m2G"/>
                 <constraint firstItem="rpS-u6-oRw" firstAttribute="firstBaseline" secondItem="Nyp-Ut-73j" secondAttribute="firstBaseline" id="xPH-fe-Agd"/>
+                <constraint firstItem="JxB-rg-g7t" firstAttribute="leading" secondItem="4IA-nx-X0A" secondAttribute="trailing" constant="8" symbolic="YES" id="zIi-QP-IaV"/>
             </constraints>
             <point key="canvasLocation" x="31" y="81.5"/>
         </customView>

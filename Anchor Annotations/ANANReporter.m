@@ -31,21 +31,25 @@ static void *includeInactiveLayersContext = &includeInactiveLayersContext;
 static void *includeNestedAnchorsContext = &includeNestedAnchorsContext;
 static void *displayAnchorNamesContext = &displayAnchorNamesContext;
 static void *fontSizeContext = &fontSizeContext;
+static void *fontWidthContext = &fontWidthContext;
 static void *generalColorContext = &generalColorContext;
 static void *nameColorsContext = &nameColorsContext;
 static void *abbreviationsContext = &abbreviationsContext;
+static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsensitiveContext;
 
 @interface ANANReporter ()
 @property (assign) BOOL includeInactiveLayers;
 @property (assign) BOOL includeNestedAnchors;
 @property (assign) BOOL displayAnchorNames;
 @property (assign) CGFloat fontSize;
+@property (assign) CGFloat fontWidth;
 @property (strong) NSColor *generalColor;
 @property (strong) NSDictionary<NSString *, NSColor *> *nameColors;
 @property (strong) NSDictionary<NSString *, NSString *> *abbreviations;
 /// The key-value pairs from `abbreviations` as tuple arrays sorted with the longest keys first descending to the shortest keys.
 /// Updated every time `abbreviations` is updated.
 @property (strong) NSArray<NSArray<NSString *> *> *sortedAbbreviations;
+@property (assign) BOOL abbreviationsAreCaseInsensitive;
 @end
 
 @implementation ANANReporter {
@@ -60,7 +64,8 @@ static void *abbreviationsContext = &abbreviationsContext;
             kIncludeInactiveLayersKey: @YES,
             kIncludeNestedAnchorsKey: @YES,
             kDisplayAnchorNamesKey: @YES,
-            kFontSizeKey: @10,
+            kFontSizeKey: @13,
+            kFontWidthKey: @80,
             kGeneralColorKey: @1,
             kNameColorsKey: @{},
             kAbbreviationsKey: @{
@@ -70,6 +75,7 @@ static void *abbreviationsContext = &abbreviationsContext;
                 @"right": @"→",
                 @"center": @"×",
             },
+            kAbbreviationsAreCaseInsensitiveKey: @YES,
         }];
     }
 }
@@ -104,6 +110,10 @@ static void *abbreviationsContext = &abbreviationsContext;
                                 options:NSKeyValueObservingOptionInitial
                                 context:fontSizeContext];
         [defaultsController addObserver:self
+                             forKeyPath:[@"values." stringByAppendingString:kFontWidthKey]
+                                options:NSKeyValueObservingOptionInitial
+                                context:fontWidthContext];
+        [defaultsController addObserver:self
                              forKeyPath:[@"values." stringByAppendingString:kGeneralColorKey]
                                 options:NSKeyValueObservingOptionInitial
                                 context:generalColorContext];
@@ -115,6 +125,10 @@ static void *abbreviationsContext = &abbreviationsContext;
                              forKeyPath:[@"values." stringByAppendingString:kAbbreviationsKey]
                                 options:NSKeyValueObservingOptionInitial
                                 context:abbreviationsContext];
+        [defaultsController addObserver:self
+                             forKeyPath:[@"values." stringByAppendingString:kAbbreviationsAreCaseInsensitiveKey]
+                                options:NSKeyValueObservingOptionInitial
+                                context:abbreviationsAreCaseInsensitiveContext];
     }
     
     static dispatch_once_t onceToken;
@@ -136,9 +150,11 @@ static void *abbreviationsContext = &abbreviationsContext;
     [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kIncludeNestedAnchorsKey]];
     [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kDisplayAnchorNamesKey]];
     [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kFontSizeKey]];
+    [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kFontWidthKey]];
     [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kGeneralColorKey]];
     [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kNameColorsKey]];
     [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kAbbreviationsKey]];
+    [defaultsController removeObserver:self forKeyPath:[@"values." stringByAppendingString:kAbbreviationsAreCaseInsensitiveKey]];
     _editViewController = nil;
 }
 
@@ -172,6 +188,10 @@ static void *abbreviationsContext = &abbreviationsContext;
     }
     else if (context == fontSizeContext) {
         _fontSize = MAX(1,  [NSUserDefaults.standardUserDefaults doubleForKey:kFontSizeKey]);
+        [_editViewController redraw];
+    }
+    else if (context == fontWidthContext) {
+        _fontWidth = MAX(50, MIN(150, [NSUserDefaults.standardUserDefaults doubleForKey:kFontWidthKey]));
         [_editViewController redraw];
     }
     else if (context == generalColorContext) {
@@ -213,6 +233,10 @@ static void *abbreviationsContext = &abbreviationsContext;
         
         [_editViewController redraw];
     }
+    else if (context == abbreviationsAreCaseInsensitiveContext) {
+        _abbreviationsAreCaseInsensitive = [NSUserDefaults.standardUserDefaults boolForKey:kAbbreviationsAreCaseInsensitiveKey];
+        [_editViewController redraw];
+    }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
@@ -240,8 +264,10 @@ static void *abbreviationsContext = &abbreviationsContext;
 // MARK: Plugin
 
 - (NSString *)formatAnchorName:(NSString *)name {
+    NSStringCompareOptions options = _abbreviationsAreCaseInsensitive ? NSCaseInsensitiveSearch : 0;
+    
     for (NSArray<NSString *> *abbreviation in _sortedAbbreviations) {
-        name = [name stringByReplacingOccurrencesOfString:abbreviation[0] withString:abbreviation[1] options:NSCaseInsensitiveSearch range:NSMakeRange(0, name.length)];
+        name = [name stringByReplacingOccurrencesOfString:abbreviation[0] withString:abbreviation[1] options:options range:NSMakeRange(0, name.length)];
     }
     return name;
 }
@@ -261,6 +287,10 @@ static void *abbreviationsContext = &abbreviationsContext;
                 NSFontFeatureSelectorIdentifierKey: @(kStylisticAltSixOnSelector),
             }
         ],
+        NSFontVariationAttribute: @{
+            // wdth
+            @2003072104: @(_fontWidth),
+        },
     }];
     NSFont *baseFont = [NSFont fontWithDescriptor:baseFontDescriptor size:0];
     
