@@ -249,7 +249,7 @@ static void *abbreviationsContext = &abbreviationsContext;
     NSShadow *textShadow = [NSShadow new];
     textShadow.shadowColor = NSColor.blackColor;
     textShadow.shadowOffset = NSZeroSize;
-    textShadow.shadowBlurRadius = unit;
+    textShadow.shadowBlurRadius = 0.5 * unit;
     
     CGFloat textOffsetX = 3.0 * unit;
     CGFloat textOffsetY = unit * (0.5 * (_fontSize + 0.1 * baseFont.descender));
