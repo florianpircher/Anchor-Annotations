@@ -79,7 +79,7 @@ Add custom entries by clicking the plus button below the *Abbreviations* table.
 To delete an entry, click on its row and then click the minus button.
 
 Select the *Case insensitive* setting to perform these text replacements regardless of capitalization.
-For example, with this setting selected and “top” mapping to “↑”, “TopLeft” would appear as “↑Left”.
+For example, with this setting selected and “top” mapping to “↑”, `TopLeft` would appear as `↑Left`.
 
 ### Special Colors
 
