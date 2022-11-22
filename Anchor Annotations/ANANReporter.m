@@ -43,6 +43,9 @@ static void *abbreviationsContext = &abbreviationsContext;
 @property (strong) NSColor *generalColor;
 @property (strong) NSDictionary<NSString *, NSColor *> *nameColors;
 @property (strong) NSDictionary<NSString *, NSString *> *abbreviations;
+/// The key-value pairs from `abbreviations` as tuple arrays sorted with the longest keys first descending to the shortest keys.
+/// Updated every time `abbreviations` is updated.
+@property (strong) NSArray<NSArray<NSString *> *> *sortedAbbreviations;
 @end
 
 @implementation ANANReporter {
@@ -192,6 +195,24 @@ static void *abbreviationsContext = &abbreviationsContext;
     }
     else if (context == abbreviationsContext) {
         _abbreviations = [NSUserDefaults.standardUserDefaults dictionaryForKey:kAbbreviationsKey];
+        
+        NSMutableArray *sortedAbbreviations = [NSMutableArray new];
+        for (NSString *pattern in _abbreviations) {
+            [sortedAbbreviations addObject:@[pattern, _abbreviations[pattern]]];
+        }
+        [sortedAbbreviations sortUsingComparator:^NSComparisonResult(NSArray<NSString *> * _Nonnull a, NSArray<NSString *> * _Nonnull b) {
+            if (a[0].length < b[0].length) {
+                return NSOrderedDescending;
+            }
+            else if (a[0].length > b[0].length) {
+                return NSOrderedAscending;
+            }
+            else {
+                return NSOrderedSame;
+            }
+        }];
+        _sortedAbbreviations = sortedAbbreviations;
+        
         [_editViewController redraw];
     }
     else {
@@ -221,8 +242,8 @@ static void *abbreviationsContext = &abbreviationsContext;
 // MARK: Plugin
 
 - (NSString *)formatAnchorName:(NSString *)name {
-    for (NSString *pattern in _abbreviations) {
-        name = [name stringByReplacingOccurrencesOfString:pattern withString:_abbreviations[pattern] options:NSCaseInsensitiveSearch range:NSMakeRange(0, name.length)];
+    for (NSArray<NSString *> *abbreviation in _sortedAbbreviations) {
+        name = [name stringByReplacingOccurrencesOfString:abbreviation[0] withString:abbreviation[1] options:NSCaseInsensitiveSearch range:NSMakeRange(0, name.length)];
     }
     return name;
 }
