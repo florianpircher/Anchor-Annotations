@@ -290,9 +290,10 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
         },
     }];
     NSFont *baseFont = [NSFont fontWithDescriptor:baseFontDescriptor size:0];
+    CGFloat pointSize = baseFont.pointSize;
     
     CGFloat textOffsetX = 3.0 * unit;
-    CGFloat textOffsetY = -0.5 * baseFont.pointSize;
+    CGFloat textOffsetY = -0.5 * pointSize;
     
     NSDictionary<NSString *, GSAnchor *> *anchors;
     NSSet<NSString *> *topLevelAnchors;
@@ -379,12 +380,12 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
             NSAttributedString *annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
                 NSFontAttributeName: baseFont,
                 NSStrokeColorAttributeName: strokeColor,
-                NSStrokeWidthAttributeName: @(unit * (100.0 / baseFont.pointSize)),
+                NSStrokeWidthAttributeName: @(unit * (100.0 / pointSize)),
             }];
             
             NSPoint idealPosition = NSMakePoint(position.x + textOffsetX, position.y + textOffsetY);
-            CGFloat insetOriginY = 0.1 * baseFont.pointSize;
-            CGFloat insetHeight = 0.2 * baseFont.pointSize + insetOriginY;
+            CGFloat insetOriginY = 0.1 * pointSize;
+            CGFloat insetHeight = 0.2 * pointSize + insetOriginY;
             NSRect rect = NSZeroRect;
             rect.origin = idealPosition;
             rect.origin.y += insetOriginY;
@@ -416,8 +417,8 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
             if (shiftCount > 0) {
                 NSBezierPath *connector = [NSBezierPath new];
                 [connector moveToPoint:anchor.position];
-                [connector lineToPoint:NSMakePoint(anchor.position.x, rect.origin.y + 0.4 * baseFont.pointSize)];
-                [connector lineToPoint:NSMakePoint(anchor.position.x + 2.0 * unit, rect.origin.y + 0.4 * baseFont.pointSize)];
+                [connector lineToPoint:NSMakePoint(anchor.position.x, rect.origin.y + 0.4 * pointSize)];
+                [connector lineToPoint:NSMakePoint(anchor.position.x + 2.0 * unit, rect.origin.y + 0.4 * pointSize)];
                 connector.lineWidth = 0.7 * unit;
                 [[color colorWithAlphaComponent:0.4] setStroke];
                 [connector stroke];
