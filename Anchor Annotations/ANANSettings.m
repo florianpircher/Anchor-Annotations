@@ -141,12 +141,6 @@ static NSBundle *pluginBundle;
 }
 
 - (void)viewDidLoad {
-    _abbreviationTableView.delegate = self;
-    _abbreviationTableView.dataSource = self;
-    
-    _colorsTableView.delegate = self;
-    _colorsTableView.dataSource = self;
-    
     for (NSTableColumn *column in _abbreviationTableView.tableColumns) {
         if ([column.identifier isEqualToString:kUIIDColumnText]) {
             column.sortDescriptorPrototype = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
@@ -208,38 +202,6 @@ static NSBundle *pluginBundle;
     }
     else if (tableView == _colorsTableView) {
         return _nameColors[row];
-    }
-    return nil;
-}
-
-- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    if (tableView == _abbreviationTableView) {
-        if ([tableColumn.identifier isEqualToString:kUIIDColumnText]) {
-            NSTableCellView *cellView = [_abbreviationTableView makeViewWithIdentifier:kUIIDColumnText owner:self];
-            cellView.textField.target = self;
-            cellView.textField.action = @selector(updateAbbreviationText:);
-            return cellView;
-        }
-        else if ([tableColumn.identifier isEqualToString:kUIIDColumnAbbreviation]) {
-            NSTableCellView *cellView = [_abbreviationTableView makeViewWithIdentifier:kUIIDColumnAbbreviation owner:self];
-            cellView.textField.target = self;
-            cellView.textField.action = @selector(updateAbbreviationAbbr:);
-            return cellView;
-        }
-    }
-    else if (tableView == _colorsTableView) {
-        if ([tableColumn.identifier isEqualToString:kUIIDColumnName]) {
-            NSTableCellView *cellView = [_colorsTableView makeViewWithIdentifier:kUIIDColumnName owner:self];
-            cellView.textField.target = self;
-            cellView.textField.action = @selector(updateName:);
-            return cellView;
-        }
-        else if ([tableColumn.identifier isEqualToString:kUIIDColumnColor]) {
-            ANANPopupTableCellView *cellView = [_colorsTableView makeViewWithIdentifier:kUIIDColumnColor owner:self];
-            cellView.popupButton.target = self;
-            cellView.popupButton.action = @selector(updateColor:);
-            return cellView;
-        }
     }
     return nil;
 }
