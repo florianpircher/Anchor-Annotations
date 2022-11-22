@@ -317,10 +317,10 @@ static void *abbreviationsContext = &abbreviationsContext;
             }
             else {
                 // diamond
-                [path moveToPoint:NSMakePoint(position.x - unit, position.y)];
-                [path lineToPoint:NSMakePoint(position.x, position.y + unit)];
-                [path lineToPoint:NSMakePoint(position.x + unit, position.y)];
-                [path lineToPoint:NSMakePoint(position.x, position.y - unit)];
+                [path moveToPoint:NSMakePoint(position.x - (1.2 * unit), position.y)];
+                [path lineToPoint:NSMakePoint(position.x, position.y + (1.2 * unit))];
+                [path lineToPoint:NSMakePoint(position.x + (1.2 * unit), position.y)];
+                [path lineToPoint:NSMakePoint(position.x, position.y - (1.2 * unit))];
             }
             [path closePath];
             [strokeColor setStroke];
