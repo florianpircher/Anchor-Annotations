@@ -10,6 +10,8 @@
             <connections>
                 <outlet property="abbreviationTableView" destination="Cte-hb-83n" id="Y6u-ym-YDp"/>
                 <outlet property="colorsTableView" destination="2DQ-kf-fmX" id="nVV-CW-Mtt"/>
+                <outlet property="fontWidthControl" destination="fHd-xu-AHb" id="Ked-aK-R2y"/>
+                <outlet property="fontWidthLabel" destination="JxB-rg-g7t" id="NwJ-Ec-RZe"/>
                 <outlet property="removeAbbreviationButton" destination="i90-RS-OwI" id="fl0-db-Nmq"/>
                 <outlet property="removeColorButton" destination="hCE-8v-aVa" id="cx3-QV-4ha"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -250,7 +252,7 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="c3x-V3-IN0" customClass="ANANPopupTableCellView">
-                                                <rect key="frame" x="114" y="0.0" width="89" height="24"/>
+                                                <rect key="frame" x="113.5" y="0.0" width="89" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="pLY-c0-RHm">

@@ -35,6 +35,8 @@ static void *displayAnchorNamesContext = &displayAnchorNamesContext;
 static NSBundle *pluginBundle;
 
 @interface ANANSettings ()
+@property (strong) IBOutlet NSTextField *fontWidthLabel;
+@property (strong) IBOutlet NSSlider *fontWidthControl;
 @property (strong) IBOutlet NSTableView *abbreviationTableView;
 @property (strong) IBOutlet NSTableView *colorsTableView;
 @property (strong) IBOutlet NSButton *removeAbbreviationButton;
@@ -165,6 +167,11 @@ static NSBundle *pluginBundle;
     
     [self tableView:_abbreviationTableView sortDescriptorsDidChange:_abbreviationTableView.sortDescriptors];
     [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
+    
+    if (@available(macOS 11, *)) {} else {
+        _fontWidthLabel.hidden = YES;
+        _fontWidthControl.hidden = YES;
+    }
 }
 
 - (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {
