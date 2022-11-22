@@ -245,11 +245,6 @@ static void *abbreviationsContext = &abbreviationsContext;
     }];
     NSFont *baseFont = [NSFont fontWithDescriptor:baseFontDescriptor size:0];
     
-    NSShadow *textShadow = [NSShadow new];
-    textShadow.shadowColor = NSColor.blackColor;
-    textShadow.shadowOffset = NSZeroSize;
-    textShadow.shadowBlurRadius = 0.5 * unit;
-    
     CGFloat textOffsetX = 3.0 * unit;
     CGFloat textOffsetY = unit * (0.5 * (_fontSize + 0.1 * baseFont.descender));
     
@@ -315,7 +310,6 @@ static void *abbreviationsContext = &abbreviationsContext;
             NSAttributedString *annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
                 NSFontAttributeName: baseFont,
                 NSForegroundColorAttributeName: color,
-                NSShadowAttributeName: textShadow,
             }];
             [annotation drawAtPoint:textPosition];
         }
