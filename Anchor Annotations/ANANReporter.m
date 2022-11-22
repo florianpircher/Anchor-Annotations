@@ -246,7 +246,7 @@ static void *abbreviationsContext = &abbreviationsContext;
     NSFont *baseFont = [NSFont fontWithDescriptor:baseFontDescriptor size:0];
     
     CGFloat textOffsetX = 3.0 * unit;
-    CGFloat textOffsetY = unit * (0.5 * (_fontSize + 0.1 * baseFont.descender));
+    CGFloat textOffsetY = unit * (0.5 * _fontSize + 0.1 * baseFont.descender);
     
     NSDictionary<NSString *, GSAnchor *> *anchors;
     NSSet<NSString *> *topLevelAnchors;
@@ -273,6 +273,8 @@ static void *abbreviationsContext = &abbreviationsContext;
         anchors = layer.anchors;
     }
     
+    NSColor *strokeColor = [NSColor.textBackgroundColor colorWithAlphaComponent:0.5];
+    
     for (NSString *anchorName in anchors) {
         GSAnchor *anchor = anchors[anchorName];
         
@@ -281,25 +283,31 @@ static void *abbreviationsContext = &abbreviationsContext;
         }
         
         BOOL isNestedAnchor = topLevelAnchors != nil && ![topLevelAnchors containsObject:anchorName];
-        NSColor *color = [self colorForAnchorName:anchorName];
-        if (isNestedAnchor) {
-            color = [color colorWithAlphaComponent:0.6];
-        }
+        NSColor *fillColor = [self colorForAnchorName:anchorName];
         NSPoint position = anchor.position;
         
         if (!isActive || isNestedAnchor) {
             // draw anchor point
             NSBezierPath *path = [NSBezierPath new];
-            [path moveToPoint:NSMakePoint(position.x - unit, position.y)];
-            [path lineToPoint:NSMakePoint(position.x, position.y + unit)];
-            [path lineToPoint:NSMakePoint(position.x + unit, position.y)];
-            [path lineToPoint:NSMakePoint(position.x, position.y - unit)];
+            if (isNestedAnchor) {
+                // triangle
+                [path moveToPoint:NSMakePoint(position.x - 1.2 * unit, position.y + unit)];
+                [path lineToPoint:NSMakePoint(position.x + 1.2 * unit, position.y + unit)];
+                [path lineToPoint:NSMakePoint(position.x, position.y - unit)];
+            }
+            else {
+                // diamond
+                [path moveToPoint:NSMakePoint(position.x - unit, position.y)];
+                [path lineToPoint:NSMakePoint(position.x, position.y + unit)];
+                [path lineToPoint:NSMakePoint(position.x + unit, position.y)];
+                [path lineToPoint:NSMakePoint(position.x, position.y - unit)];
+            }
             [path closePath];
-            [NSColor.textBackgroundColor setStroke];
+            [strokeColor setStroke];
             path.lineWidth = 2.0 * unit;
             [path stroke];
             path.lineWidth = 1.0 * unit;
-            [color set];
+            [fillColor set];
             [path stroke];
             [path fill];
         }
@@ -307,9 +315,17 @@ static void *abbreviationsContext = &abbreviationsContext;
         if (_displayAnchorNames) {
             NSString *label = [self formatAnchorName:anchorName];
             NSPoint textPosition = NSMakePoint(position.x + textOffsetX, position.y - textOffsetY);
+            
             NSAttributedString *annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
                 NSFontAttributeName: baseFont,
-                NSForegroundColorAttributeName: color,
+                NSStrokeColorAttributeName: strokeColor,
+                NSStrokeWidthAttributeName: @(unit * (100.0 / baseFont.pointSize)),
+            }];
+            [annotation drawAtPoint:textPosition];
+            
+            annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
+                NSFontAttributeName: baseFont,
+                NSForegroundColorAttributeName: fillColor,
             }];
             [annotation drawAtPoint:textPosition];
         }
