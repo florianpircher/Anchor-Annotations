@@ -327,6 +327,12 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
         else if (a.position.y > b.position.y) {
             return NSOrderedAscending;
         }
+        else if (a.position.x < b.position.x) {
+            return NSOrderedAscending;
+        }
+        else if (a.position.x > b.position.x) {
+            return NSOrderedDescending;
+        }
         else {
             return NSOrderedSame;
         }
