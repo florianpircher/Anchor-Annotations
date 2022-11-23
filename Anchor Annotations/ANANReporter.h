@@ -28,9 +28,9 @@ static NSString * const kDisplayAnchorNamesKey = @"AnchorAnnotationsDisplayAncho
 static NSString * const kFontSizeKey = @"AnchorAnnotationsFontSize";
 static NSString * const kFontWidthKey = @"AnchorAnnotationsFontWidth";
 static NSString * const kGeneralColorKey = @"AnchorAnnotationsGeneralColor";
-static NSString * const kNameColorsKey = @"AnchorAnnotationsNameColors";
 static NSString * const kAbbreviationsKey = @"AnchorAnnotationsAbbreviations";
 static NSString * const kAbbreviationsAreCaseInsensitiveKey = @"AnchorAnnotationsAbbreviationsAreCaseInsensitive";
+static NSString * const kNameColorsKey = @"AnchorAnnotationsNameColors";
 
 @interface ANANReporter : NSObject <GlyphsReporter>
 
