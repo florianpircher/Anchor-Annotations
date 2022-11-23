@@ -37,6 +37,8 @@ static void *nameColorsContext = &nameColorsContext;
 static void *abbreviationsContext = &abbreviationsContext;
 static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsensitiveContext;
 
+static NSBundle *pluginBundle;
+
 @interface ANANReporter ()
 @property (assign) BOOL includeInactiveLayers;
 @property (assign) BOOL includeNestedAnchors;
@@ -60,6 +62,8 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
 
 + (void)initialize {
     if (self == [ANANReporter self]) {
+        pluginBundle = [NSBundle bundleForClass:[self class]];
+        
         [NSUserDefaults.standardUserDefaults registerDefaults:@{
             kIncludeInactiveLayersKey: @YES,
             kIncludeNestedAnchorsKey: @YES,
@@ -155,17 +159,78 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
     _editViewController = nil;
 }
 
-- (NSColor *)colorForColorId:(NSInteger)colorId {
++ (NSColor *)colorForColorId:(NSInteger)colorId {
+    static NSColor *red = nil;
+    static NSColor *orange = nil;
+    static NSColor *brown = nil;
+    static NSColor *yellow = nil;
+    static NSColor *green = nil;
+    static NSColor *mint = nil;
+    static NSColor *teal = nil;
+    static NSColor *cyan = nil;
+    static NSColor *blue = nil;
+    static NSColor *indigo = nil;
+    static NSColor *purple = nil;
+    static NSColor *pink = nil;
+    static NSColor *gray = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        if (@available(macOS 10.13, *)) {
+            red = [NSColor colorNamed:@"Red" bundle:pluginBundle];
+            orange = [NSColor colorNamed:@"Orange" bundle:pluginBundle];
+            brown = [NSColor colorNamed:@"Brown" bundle:pluginBundle];
+            yellow = [NSColor colorNamed:@"Yellow" bundle:pluginBundle];
+            green = [NSColor colorNamed:@"Green" bundle:pluginBundle];
+            mint = [NSColor colorNamed:@"Mint" bundle:pluginBundle];
+            teal = [NSColor colorNamed:@"Teal" bundle:pluginBundle];
+            cyan = [NSColor colorNamed:@"Cyan" bundle:pluginBundle];
+            blue = [NSColor colorNamed:@"Blue" bundle:pluginBundle];
+            indigo = [NSColor colorNamed:@"Indigo" bundle:pluginBundle];
+            purple = [NSColor colorNamed:@"Purple" bundle:pluginBundle];
+            pink = [NSColor colorNamed:@"Pink" bundle:pluginBundle];
+            gray = [NSColor colorNamed:@"Gray" bundle:pluginBundle];
+        }
+        else {
+            red = NSColor.systemRedColor;
+            orange = NSColor.systemOrangeColor;
+            brown = NSColor.systemBrownColor;
+            yellow = NSColor.systemYellowColor;
+            green = NSColor.systemGreenColor;
+            if (@available(macOS 10.12, *)) {
+                mint = NSColor.systemMintColor;
+            }
+            else {
+                mint = NSColor.systemGreenColor;
+            }
+            if (@available(macOS 10.12, *)) {
+                teal = NSColor.systemTealColor;
+            }
+            else {
+                teal = NSColor.systemGreenColor;
+            }
+            cyan = NSColor.systemBlueColor;
+            blue = NSColor.systemBlueColor;
+            indigo = NSColor.systemBlueColor;
+            purple = NSColor.systemPurpleColor;
+            pink = NSColor.systemPinkColor;
+            gray = NSColor.systemGrayColor;
+        }
+    });
+    
     switch (colorId) {
-    case 1: return NSColor.systemRedColor;
-    case 2: return NSColor.systemOrangeColor;
-    case 3: return NSColor.systemBrownColor;
-    case 4: return NSColor.systemYellowColor;
-    case 5: return NSColor.systemGreenColor;
-    case 9: return NSColor.systemBlueColor;
-    case 10: return NSColor.systemPurpleColor;
-    case 11: return NSColor.systemPinkColor;
-    case 12: return NSColor.systemGrayColor;
+    case 1: return red;
+    case 2: return orange;
+    case 3: return brown;
+    case 4: return yellow;
+    case 5: return green;
+    case 6: return mint;
+    case 7: return teal;
+    case 8: return cyan;
+    case 9: return blue;
+    case 10: return indigo;
+    case 11: return purple;
+    case 12: return pink;
+    case 13: return gray;
     default: return NSColor.textColor;
     }
 }
@@ -193,7 +258,7 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
     }
     else if (context == generalColorContext) {
         NSInteger colorId = [NSUserDefaults.standardUserDefaults integerForKey:kGeneralColorKey];
-        _generalColor = [self colorForColorId:colorId];
+        _generalColor = [ANANReporter colorForColorId:colorId];
         [_editViewController redraw];
     }
     else if (context == nameColorsContext) {
@@ -202,7 +267,7 @@ static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsen
         
         for (NSString *name in nameColorIds) {
             NSInteger colorId = [nameColorIds[name] integerValue];
-            nameColors[name] = [self colorForColorId:colorId];
+            nameColors[name] = [ANANReporter colorForColorId:colorId];
         }
         
         _nameColors = nameColors;

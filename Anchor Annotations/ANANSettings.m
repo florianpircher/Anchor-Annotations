@@ -37,6 +37,7 @@ static NSBundle *pluginBundle;
 @interface ANANSettings ()
 @property (strong) IBOutlet NSTextField *fontWidthLabel;
 @property (strong) IBOutlet NSSlider *fontWidthControl;
+@property (strong) IBOutlet NSPopUpButton *generalColorPicker;
 @property (strong) IBOutlet NSTableView *abbreviationTableView;
 @property (strong) IBOutlet NSTableView *colorsTableView;
 @property (strong) IBOutlet NSButton *removeAbbreviationButton;
@@ -166,6 +167,61 @@ static NSBundle *pluginBundle;
         _fontWidthLabel.hidden = YES;
         _fontWidthControl.hidden = YES;
     }
+    
+    _generalColorPicker.menu = [self makeColorsMenuWithImageSize:NSMakeSize(14, 14)];
+    [_generalColorPicker bind:NSSelectedTagBinding toObject:NSUserDefaultsController.sharedUserDefaultsController withKeyPath:[@"values." stringByAppendingString:kGeneralColorKey] options:nil];
+}
+
+- (NSImage *)colorSwatchImageWithSize:(NSSize)size forColorId:(NSInteger)colorId {
+    NSColor *color = [ANANReporter colorForColorId:colorId];
+    
+    return [NSImage imageWithSize:size flipped:YES drawingHandler:^BOOL(NSRect rect) {
+        CGContextRef context = NSGraphicsContext.currentContext.CGContext;
+        
+        NSColor *outlineColor = [color blendedColorWithFraction:0.2 ofColor:NSColor.blackColor];
+        [outlineColor setFill];
+        CGContextFillEllipseInRect(context, rect);
+        
+        [color setFill];
+        CGContextFillEllipseInRect(context, NSInsetRect(rect, 1, 1));
+        
+        return YES;
+    }];
+}
+
+- (NSMenu *)makeColorsMenuWithImageSize:(NSSize)imageSize {
+    static NSMenu *menu = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        menu = [NSMenu new];
+        NSMenuItem *textItem = [NSMenuItem new];
+        textItem.title = NSLocalizedStringFromTableInBundle(@"0", @"Colors", pluginBundle, @"");
+        textItem.tag = 0;
+        textItem.image = [self colorSwatchImageWithSize:imageSize forColorId:0];
+        [menu addItem:textItem];
+        
+        [menu addItem:[NSMenuItem separatorItem]];
+        
+        for (NSInteger i = 1; i <= 13; i++) {
+            NSMenuItem *item = [NSMenuItem new];
+            NSString *key = [NSString stringWithFormat:@"%ld", i];
+            item.title = NSLocalizedStringFromTableInBundle(key, @"Colors", pluginBundle, @"");
+            item.tag = i;
+            item.image = [self colorSwatchImageWithSize:imageSize forColorId:i];
+            [menu addItem:item];
+        }
+    });
+    
+    return [menu copy];
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    NSView *view = [tableView makeViewWithIdentifier:tableColumn.identifier owner:self];
+    if ([tableColumn.identifier isEqualToString:kUIIDColumnColor]) {
+        ANANPopupTableCellView *cellView = (ANANPopupTableCellView *)view;
+        cellView.popupButton.menu = [self makeColorsMenuWithImageSize:NSMakeSize(12, 12)];
+    }
+    return view;
 }
 
 - (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray<NSSortDescriptor *> *)oldDescriptors {

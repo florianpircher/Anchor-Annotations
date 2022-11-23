@@ -58,7 +58,7 @@ Values range from 50% (full compression) to 100% (no compression); the default v
 ### Color
 
 The *Color* setting controls the color of the anchor points and anchor names.
-The options are *Red*, *Orange*, *Brown*, *Yellow*, *Green*, *Blue*, *Purple*, *Pink*, and *Gray*.
+The options are *Red*, *Orange*, *Brown*, *Yellow*, *Green*, *Mint*, *Teal*, *Cyan*, *Blue*, *Indigo*, *Purple*, *Pink*, and *Gray*.
 Additionally, the *Text* option applies the current foreground color.
 
 You can define custom colors for certain anchor names in the *Special Colors* section.

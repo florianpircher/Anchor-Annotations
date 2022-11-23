@@ -34,6 +34,8 @@ static NSString * const kAbbreviationsAreCaseInsensitiveKey = @"AnchorAnnotation
 
 @interface ANANReporter : NSObject <GlyphsReporter>
 
++ (NSColor *)colorForColorId:(NSInteger)colorId;
+
 @end
 
 NS_ASSUME_NONNULL_END
