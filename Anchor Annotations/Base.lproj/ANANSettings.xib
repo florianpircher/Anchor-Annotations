@@ -169,7 +169,6 @@
                     <rect key="frame" x="44" y="19" width="22" height="24"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="mvm-Nr-cbj"/>
-                        <constraint firstAttribute="height" constant="22" id="nxY-nE-iSJ"/>
                     </constraints>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l6I-0e-hOf">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -318,7 +317,6 @@
                 <button toolTip="Add anchor name color" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qg0-Ie-zdh">
                     <rect key="frame" x="235" y="19" width="22" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="22" id="XmC-89-Acl"/>
                         <constraint firstAttribute="width" constant="22" id="vMm-Z0-eBV"/>
                     </constraints>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSAddTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fj7-bE-kyS">
@@ -332,7 +330,6 @@
                 <button toolTip="Delete selected anchor name colors" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hCE-8v-aVa">
                     <rect key="frame" x="259" y="19" width="22" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="22" id="RLL-wb-zGX"/>
                         <constraint firstAttribute="width" constant="22" id="br2-hf-ZST"/>
                     </constraints>
                     <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P7t-a3-Ufl">
@@ -484,9 +481,11 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ykC-hg-AXu" secondAttribute="trailing" constant="20" symbolic="YES" id="3Wz-qM-Ct4"/>
                 <constraint firstItem="Ulh-NQ-j23" firstAttribute="leading" secondItem="Nyp-Ut-73j" secondAttribute="leading" id="3ci-qn-BeX"/>
                 <constraint firstItem="hCE-8v-aVa" firstAttribute="leading" secondItem="Qg0-Ie-zdh" secondAttribute="trailing" constant="2" id="45h-m4-WKH"/>
+                <constraint firstItem="Qg0-Ie-zdh" firstAttribute="height" secondItem="fnm-PB-eDJ" secondAttribute="height" id="685-D3-lPw"/>
                 <constraint firstItem="ykC-hg-AXu" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" priority="500" id="8jW-Vt-MjX"/>
                 <constraint firstItem="Pt3-eT-aX8" firstAttribute="centerY" secondItem="i90-RS-OwI" secondAttribute="centerY" id="8tE-Qv-NY7"/>
                 <constraint firstItem="Qg0-Ie-zdh" firstAttribute="centerY" secondItem="fnm-PB-eDJ" secondAttribute="centerY" id="962-rt-RsA"/>
+                <constraint firstItem="i90-RS-OwI" firstAttribute="height" secondItem="fnm-PB-eDJ" secondAttribute="height" id="AaD-dJ-fUF"/>
                 <constraint firstItem="JxB-rg-g7t" firstAttribute="firstBaseline" secondItem="Xmt-Ep-tjb" secondAttribute="firstBaseline" id="Bhj-uw-Edh"/>
                 <constraint firstItem="fHd-xu-AHb" firstAttribute="centerY" secondItem="JxB-rg-g7t" secondAttribute="centerY" id="GAW-7v-W6d"/>
                 <constraint firstItem="ykC-hg-AXu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="J9g-tO-uwW"/>
@@ -503,6 +502,7 @@
                 <constraint firstItem="4De-8e-b8M" firstAttribute="top" secondItem="Wfa-HU-FRK" secondAttribute="top" id="WS6-Xc-rH3"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JbH-zN-Gff" secondAttribute="trailing" constant="20" symbolic="YES" id="XLs-P1-keu"/>
                 <constraint firstItem="cRm-9D-Ikm" firstAttribute="firstBaseline" secondItem="JbH-zN-Gff" secondAttribute="firstBaseline" id="avA-vg-h8i"/>
+                <constraint firstItem="hCE-8v-aVa" firstAttribute="height" secondItem="Qg0-Ie-zdh" secondAttribute="height" id="b7u-lx-UHK"/>
                 <constraint firstItem="hCE-8v-aVa" firstAttribute="centerY" secondItem="Qg0-Ie-zdh" secondAttribute="centerY" id="bXo-km-kKz"/>
                 <constraint firstItem="fnm-PB-eDJ" firstAttribute="leading" secondItem="Ulh-NQ-j23" secondAttribute="leading" id="bj6-PW-dVt"/>
                 <constraint firstItem="Qg0-Ie-zdh" firstAttribute="top" secondItem="4De-8e-b8M" secondAttribute="bottom" constant="6" id="cBS-7c-Ifp"/>
