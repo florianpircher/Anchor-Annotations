@@ -404,7 +404,7 @@ static NSBundle *pluginBundle;
     }];
     
     NSColor *canvasColor = _editViewController.graphicView.canvasColor ?: NSColor.textBackgroundColor;
-    NSColor *strokeColor = [canvasColor colorWithAlphaComponent:0.7];
+    NSColor *strokeColor = [canvasColor colorWithAlphaComponent:0.9];
     
     NSMutableArray<NSValue *> *drawnRects = [NSMutableArray new];
     
@@ -451,7 +451,7 @@ static NSBundle *pluginBundle;
             NSAttributedString *annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
                 NSFontAttributeName: baseFont,
                 NSStrokeColorAttributeName: strokeColor,
-                NSStrokeWidthAttributeName: @(unit * (100.0 / pointSize)),
+                NSStrokeWidthAttributeName: @(unit * (200.0 / pointSize)),
             }];
             
             NSPoint idealPosition = NSMakePoint(position.x + textOffsetX, position.y + textOffsetY);
@@ -491,7 +491,7 @@ static NSBundle *pluginBundle;
                 [connector lineToPoint:NSMakePoint(anchor.position.x, rect.origin.y + 0.4 * pointSize)];
                 [connector lineToPoint:NSMakePoint(anchor.position.x + 2.0 * unit, rect.origin.y + 0.4 * pointSize)];
                 connector.lineWidth = 0.7 * unit;
-                [[color colorWithAlphaComponent:0.4] setStroke];
+                [[color colorWithAlphaComponent:0.5] setStroke];
                 [connector stroke];
             }
             
