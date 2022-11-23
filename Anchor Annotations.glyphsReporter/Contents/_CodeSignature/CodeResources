@@ -4,23 +4,36 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/Assets.car</key>
+		<data>
+		7/uqsnnSOMJYxm7W9WHY3fIoAOA=
+		</data>
 		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects-101300.nib</key>
 		<data>
-		Eq1IVEqk62eqOqZvK1ej3lf3DPA=
+		zJ1DdinooQaB1cGFhUpcJSksajw=
 		</data>
 		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects-110000.nib</key>
 		<data>
-		Tew2mVs23fCEoHEgdmbqXhIXfMs=
+		d7N2uCdoX6lvQ8lpfxXtOU1fxoM=
 		</data>
 		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects.nib</key>
 		<data>
-		r70atvO0F9Ki0JRPjw1LUFQ1qXI=
+		70NzuAMVURU+7e+c6G6vXhciMss=
 		</data>
 		<key>Resources/de.lproj/ANANSettings.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EgkfSlfaha6VQQRkNIXCLi/6kTc=
+			6tUz9392MIpmn/KFJopKG7ZNu0U=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/de.lproj/Colors.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			E7kexu96JThozqzaPnqivIdBOpg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -29,7 +42,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/UIMn7uMX//RQq56roH0zdL55dA=
+			DovAlWRDzNb7pwUnR9z2HphquCo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -39,6 +52,15 @@
 			<key>hash</key>
 			<data>
 			S2/CN83B//q0BbWXzykc2LYJp6U=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/en.lproj/Colors.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			csW8iqjwGEr42AWFVhxlIj+FeXw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -64,48 +86,72 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Resources/Assets.car</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7/uqsnnSOMJYxm7W9WHY3fIoAOA=
+			</data>
+			<key>hash2</key>
+			<data>
+			U8WEaqk/WkbFbnP9j+V+Xsyuzep9F665Xit339hjh2Y=
+			</data>
+		</dict>
 		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects-101300.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Eq1IVEqk62eqOqZvK1ej3lf3DPA=
+			zJ1DdinooQaB1cGFhUpcJSksajw=
 			</data>
 			<key>hash2</key>
 			<data>
-			otUY3Bw/T2y4NYkVl3pfJec1OyMsX6ARIfsOLFrOfDQ=
+			wMSc2MGl6MLYo7zmyts1F0cteVmflAHbwT/9MrioU1M=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects-110000.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Tew2mVs23fCEoHEgdmbqXhIXfMs=
+			d7N2uCdoX6lvQ8lpfxXtOU1fxoM=
 			</data>
 			<key>hash2</key>
 			<data>
-			sldZ21/EVq4qWI/yla5z1byusObT2hVHzfY0+WS7uDg=
+			KaVzJWuCrMX3DT4xnrv5JTJ7k4UH/qVMXclKCwBfU/c=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/ANANSettings.nib/keyedobjects.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			r70atvO0F9Ki0JRPjw1LUFQ1qXI=
+			70NzuAMVURU+7e+c6G6vXhciMss=
 			</data>
 			<key>hash2</key>
 			<data>
-			a96mq0ILJxgQ8lhfkAQcIDH+s3p+lxs/UAHESWjMvy8=
+			W2R+XFyz+5X0aHKH/frXvX+Mps4kZ2sCVcfECusXovM=
 			</data>
 		</dict>
 		<key>Resources/de.lproj/ANANSettings.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EgkfSlfaha6VQQRkNIXCLi/6kTc=
+			6tUz9392MIpmn/KFJopKG7ZNu0U=
 			</data>
 			<key>hash2</key>
 			<data>
-			6fVcOPJ4LLGossEjeyEkW1EQRRoSWfiu7M6zEO+3VxA=
+			6NOlEtzfHZ+x6nA8XqgOPYwPNOI1r/T3SCuSkQbzmgY=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/de.lproj/Colors.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			E7kexu96JThozqzaPnqivIdBOpg=
+			</data>
+			<key>hash2</key>
+			<data>
+			rSqqo0vCEKdotnV7r+bdw9RiNoI0NBGTfPqa90Gr1Go=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -114,11 +160,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/UIMn7uMX//RQq56roH0zdL55dA=
+			DovAlWRDzNb7pwUnR9z2HphquCo=
 			</data>
 			<key>hash2</key>
 			<data>
-			VBnkfa0UNcgFPVQ4w6yJHB+g478IwzBll4NUcHsr2nE=
+			XwFWzB0xAHpJSZaxE9DQRwpCmj4iubm9pHrpjfxdR3w=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -132,6 +178,19 @@
 			<key>hash2</key>
 			<data>
 			0YXsmwGiPC0FckJAJuVFxMf8vKDlD+Nd9097OtBb9Fc=
+			</data>
+			<key>optional</key>
+			<true/>
+		</dict>
+		<key>Resources/en.lproj/Colors.strings</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			csW8iqjwGEr42AWFVhxlIj+FeXw=
+			</data>
+			<key>hash2</key>
+			<data>
+			+T7KSPAEku3uGbxTlEH1S3+G/JJ/vdhZkq08MWz+4h0=
 			</data>
 			<key>optional</key>
 			<true/>
