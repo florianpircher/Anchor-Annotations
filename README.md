@@ -53,7 +53,7 @@ The *Font size* controls the size of the anchor names as displayed by the plugin
 
 On recent macOS versions, you can change the font width at which the anchor names are displayed.
 Pick a narrow width to reduce the risk of colliding anchor names.
-The default value is 90%; values from 50% (full compression) to 100% (no compression) can be chosen.
+Values range from 50% (full compression) to 100% (no compression); the default value is 100%.
 
 ### Color
 
