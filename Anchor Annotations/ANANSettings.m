@@ -226,18 +226,44 @@ static NSBundle *pluginBundle;
     [NSUserDefaults.standardUserDefaults setObject:data forKey:kNameColorsKey];
 }
 
+- (void)commitTableCellEdit:(NSArray *)item {
+    NSTableView *tableView = item[0];
+    NSArray *dataSource = item[1];
+    id entry = item[2];
+    // remember what would be the first responder by its column and data entry
+    NSInteger restoreFirstResponderColumn = -1;
+    id restoreFirstResponderEntry = nil;
+    NSResponder *naturalFirstResponder = tableView.window.firstResponder;
+    if ([naturalFirstResponder isKindOfClass:[NSView class]]) {
+        NSView *restorableFirstResponder = (NSView *)naturalFirstResponder;
+        NSInteger restoreFirstResponderRow = [tableView rowForView:restorableFirstResponder];
+        restoreFirstResponderColumn = [tableView columnForView:restorableFirstResponder];
+        if (restoreFirstResponderRow != -1 && restoreFirstResponderColumn != -1) {
+            restoreFirstResponderEntry = dataSource[restoreFirstResponderRow];
+        }
+    }
+    [self tableView:tableView sortDescriptorsDidChange:tableView.sortDescriptors];
+    NSInteger rowIndex = [dataSource indexOfObject:entry];
+    if (rowIndex != NSNotFound) {
+        [tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:rowIndex] byExtendingSelection:NO];
+        [tableView scrollRowToVisible:rowIndex];
+    }
+    if (restoreFirstResponderEntry != nil) {
+        // restore remembered first responder
+        NSInteger row = [dataSource indexOfObject:restoreFirstResponderEntry];
+        if (row != -1) {
+            [tableView editColumn:restoreFirstResponderColumn row:row withEvent:nil select:YES];
+        }
+    }
+}
+
 - (IBAction)updateAbbreviationText:(NSTextField *)sender {
     NSInteger row = [_abbreviationTableView rowForView:sender];
     if (row == -1) return;
     ANANAbbreviation *entry = _abbreviations[row];
     entry.text = [sender stringValue];
     [self writeAbbreviations];
-    [self tableView:_abbreviationTableView sortDescriptorsDidChange:_abbreviationTableView.sortDescriptors];
-    NSInteger entryIndex = [_abbreviations indexOfObject:entry];
-    if (entryIndex != NSNotFound) {
-        [_abbreviationTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:entryIndex] byExtendingSelection:NO];
-        [_abbreviationTableView scrollRowToVisible:entryIndex];
-    }
+    [self performSelector:@selector(commitTableCellEdit:) withObject:@[_abbreviationTableView, _abbreviations, entry] afterDelay:0];
 }
 
 - (IBAction)updateAbbreviationAbbr:(NSTextField *)sender {
@@ -246,12 +272,7 @@ static NSBundle *pluginBundle;
     ANANAbbreviation *entry = _abbreviations[row];
     entry.abbreviation = [sender stringValue];
     [self writeAbbreviations];
-    [self tableView:_abbreviationTableView sortDescriptorsDidChange:_abbreviationTableView.sortDescriptors];
-    NSInteger entryIndex = [_abbreviations indexOfObject:entry];
-    if (entryIndex != NSNotFound) {
-        [_abbreviationTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:entryIndex] byExtendingSelection:NO];
-        [_abbreviationTableView scrollRowToVisible:entryIndex];
-    }
+    [self performSelector:@selector(commitTableCellEdit:) withObject:@[_abbreviationTableView, _abbreviations, entry] afterDelay:0];
 }
 
 - (IBAction)updateName:(NSTextField *)sender {
@@ -260,12 +281,7 @@ static NSBundle *pluginBundle;
     ANANNameColor *entry = _nameColors[row];
     entry.name = [sender stringValue];
     [self writeNameColors];
-    [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
-    NSInteger entryIndex = [_nameColors indexOfObject:entry];
-    if (entryIndex != NSNotFound) {
-        [_colorsTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:entryIndex] byExtendingSelection:NO];
-        [_colorsTableView scrollRowToVisible:entryIndex];
-    }
+    [self performSelector:@selector(commitTableCellEdit:) withObject:@[_colorsTableView, _nameColors, entry] afterDelay:0];
 }
 
 - (IBAction)updateColor:(NSPopUpButton *)sender {
@@ -274,12 +290,7 @@ static NSBundle *pluginBundle;
     ANANNameColor *entry = _nameColors[row];
     entry.colorId = [sender selectedTag];
     [self writeNameColors];
-    [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
-    NSInteger entryIndex = [_nameColors indexOfObject:entry];
-    if (entryIndex != NSNotFound) {
-        [_colorsTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:entryIndex] byExtendingSelection:NO];
-        [_colorsTableView scrollRowToVisible:entryIndex];
-    }
+    [self performSelector:@selector(commitTableCellEdit:) withObject:@[_colorsTableView, _nameColors, entry] afterDelay:0];
 }
 
 - (void)updateDisplayForTableView:(NSTableView *)tableView {
