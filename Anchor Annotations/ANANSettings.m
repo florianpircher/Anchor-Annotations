@@ -387,7 +387,7 @@ static NSBundle *pluginBundle;
 - (IBAction)addColor:(id)sender {
     ANANNameColor *newEntry = [ANANNameColor new];
     newEntry.name = NSLocalizedStringFromTableInBundle(@"newAnchorName", nil, pluginBundle, @"Initial text for a new anchor name");
-    newEntry.colorId = 5;
+    newEntry.colorId = 1;
     [_nameColors addObject:newEntry];
     [self writeNameColors];
     [self tableView:_colorsTableView sortDescriptorsDidChange:_colorsTableView.sortDescriptors];
