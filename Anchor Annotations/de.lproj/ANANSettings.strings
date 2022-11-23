@@ -16,66 +16,6 @@
 /* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "J5d-lb-dqZ"; */
 "J5d-lb-dqZ.title" = "Farbe:";
 
-/* Class = "NSMenuItem"; title = "Text"; ObjectID = "bDx-wE-Le9"; */
-"bDx-wE-Le9.title" = "Text";
-
-/* Class = "NSMenuItem"; title = "Text"; ObjectID = "qBq-GK-UdR"; */
-"qBq-GK-UdR.title" = "Text";
-
-/* Class = "NSMenuItem"; title = "Red"; ObjectID = "8tZ-Me-yZz"; */
-"8tZ-Me-yZz.title" = "Rot";
-
-/* Class = "NSMenuItem"; title = "Red"; ObjectID = "bDk-iP-lws"; */
-"bDk-iP-lws.title" = "Rot";
-
-/* Class = "NSMenuItem"; title = "Orange"; ObjectID = "7S6-Ep-0je"; */
-"7S6-Ep-0je.title" = "Orange";
-
-/* Class = "NSMenuItem"; title = "Orange"; ObjectID = "kUw-Cc-VFH"; */
-"kUw-Cc-VFH.title" = "Orange";
-
-/* Class = "NSMenuItem"; title = "Brown"; ObjectID = "fTh-Ug-IgM"; */
-"fTh-Ug-IgM.title" = "Braun";
-
-/* Class = "NSMenuItem"; title = "Brown"; ObjectID = "vFQ-xk-1KK"; */
-"vFQ-xk-1KK.title" = "Braun";
-
-/* Class = "NSMenuItem"; title = "Yellow"; ObjectID = "VfB-ou-Jp5"; */
-"VfB-ou-Jp5.title" = "Gelb";
-
-/* Class = "NSMenuItem"; title = "Yellow"; ObjectID = "gRu-qV-ZLp"; */
-"gRu-qV-ZLp.title" = "Gelb";
-
-/* Class = "NSMenuItem"; title = "Green"; ObjectID = "7df-fo-2OQ"; */
-"7df-fo-2OQ.title" = "Grün";
-
-/* Class = "NSMenuItem"; title = "Green"; ObjectID = "Yil-7f-qdQ"; */
-"Yil-7f-qdQ.title" = "Grün";
-
-/* Class = "NSMenuItem"; title = "Blue"; ObjectID = "3hQ-V9-f19"; */
-"3hQ-V9-f19.title" = "Blau";
-
-/* Class = "NSMenuItem"; title = "Blue"; ObjectID = "XsR-e1-3N5"; */
-"XsR-e1-3N5.title" = "Blau";
-
-/* Class = "NSMenuItem"; title = "Purple"; ObjectID = "vGt-Yw-qvB"; */
-"vGt-Yw-qvB.title" = "Lila";
-
-/* Class = "NSMenuItem"; title = "Purple"; ObjectID = "ytY-M5-44s"; */
-"ytY-M5-44s.title" = "Lila";
-
-/* Class = "NSMenuItem"; title = "Pink"; ObjectID = "0t2-Hn-bEv"; */
-"0t2-Hn-bEv.title" = "Pink";
-
-/* Class = "NSMenuItem"; title = "Pink"; ObjectID = "461-FI-Syl"; */
-"461-FI-Syl.title" = "Pink";
-
-/* Class = "NSMenuItem"; title = "Gray"; ObjectID = "Ih8-tr-eBg"; */
-"Ih8-tr-eBg.title" = "Grau";
-
-/* Class = "NSMenuItem"; title = "Gray"; ObjectID = "o7x-OS-c6n"; */
-"o7x-OS-c6n.title" = "Grau";
-
 /* Class = "NSTextFieldCell"; title = "Abbreviations"; ObjectID = "gLw-kz-Yhw"; */
 "gLw-kz-Yhw.title" = "Abkürzungen";
 
