@@ -37,7 +37,7 @@
                         <rect key="frame" x="1" y="1" width="205" height="93"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveName="ANANAbbreviationsTable" rowHeight="24" rowSizeStyle="small" headerView="Wfa-HU-FRK" viewBased="YES" id="Cte-hb-83n">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveName="ANANAbbreviationsTable" rowHeight="24" rowSizeStyle="small" headerView="Wfa-HU-FRK" viewBased="YES" id="Cte-hb-83n">
                                 <rect key="frame" x="0.0" y="0.0" width="212" height="65"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="17" height="0.0"/>
@@ -193,7 +193,7 @@
                         <rect key="frame" x="1" y="1" width="205" height="93"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" autosaveName="ANANNameColorsTable" rowHeight="24" rowSizeStyle="small" headerView="uEB-yh-5wL" viewBased="YES" id="2DQ-kf-fmX">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveName="ANANNameColorsTable" rowHeight="24" rowSizeStyle="small" headerView="uEB-yh-5wL" viewBased="YES" id="2DQ-kf-fmX">
                                 <rect key="frame" x="0.0" y="0.0" width="211" height="65"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="17" height="0.0"/>
