@@ -2,10 +2,10 @@
 "Anchor Annotations" = "Ankeranmerkungen";
 
 /* Initial text for a new abbreviation replacement pattern */
-"newText" = "neueText";
+"newText" = "neuerText";
 
 /* Initial text for a new abbreviation */
 "newAbbr" = "neueAbk";
 
 /* Initial text for a new anchor name */
-"newAnchorName" = "neueAnkerName";
+"newAnchorName" = "neuerAnkerName";

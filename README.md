@@ -83,7 +83,7 @@ For example, with this setting selected and “top” mapping to “↑”, `Top
 
 ### Special Colors
 
-In the *Special Colors* you can define colors deviating from the main anchor color.
+In the *Special Colors* section you can define colors deviating from the main anchor color.
 Add an entry and write the full name of an anchor in the *Anchor Name* column.
 In the *Color* column, pick the color for anchors with this name.
 
