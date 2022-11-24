@@ -27,6 +27,8 @@
 		1703BFBA292C219E00A9A24D /* ANANReporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ANANReporter.m; path = "Anchor Annotations/ANANReporter.m"; sourceTree = "<group>"; };
 		1703C004292C223500A9A24D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		1703C006292C223900A9A24D /* GlyphsCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GlyphsCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		179DE75C292F71D100D7C471 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Colors.strings; sourceTree = "<group>"; };
+		179DE75E292F755400D7C471 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/ANANSettings.strings; sourceTree = "<group>"; };
 		17A3F506292E677600AAE523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17A3F50B292E755700AAE523 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Colors.strings; sourceTree = "<group>"; };
 		17A3F50D292E755800AAE523 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Colors.strings; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		17BE8E3B292D49ED00BDC95C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		17BE8E3D292D49EF00BDC95C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		17BE8E3F292D4D4D00BDC95C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ANANSettings.strings; sourceTree = "<group>"; };
+		17C59B6D292F6CA3008FF966 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		17C59B6E292F6F4D008FF966 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Reporter.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,7 @@
 			children = (
 				17A3F50B292E755700AAE523 /* en */,
 				17A3F50D292E755800AAE523 /* de */,
+				179DE75C292F71D100D7C471 /* it */,
 			);
 			name = Colors.strings;
 			path = "Anchor Annotations";
@@ -210,6 +215,7 @@
 			children = (
 				17B10ACA292D593D00D9ED16 /* en */,
 				17B10ACC292D593E00D9ED16 /* de */,
+				17C59B6E292F6F4D008FF966 /* it */,
 			);
 			name = Reporter.strings;
 			path = "Anchor Annotations";
@@ -220,6 +226,7 @@
 			children = (
 				17BE8E34292D497B00BDC95C /* Base */,
 				17BE8E3F292D4D4D00BDC95C /* de */,
+				179DE75E292F755400D7C471 /* it */,
 			);
 			name = ANANSettings.xib;
 			path = "Anchor Annotations";
@@ -230,6 +237,7 @@
 			children = (
 				17BE8E3B292D49ED00BDC95C /* en */,
 				17BE8E3D292D49EF00BDC95C /* de */,
+				17C59B6D292F6CA3008FF966 /* it */,
 			);
 			name = Localizable.strings;
 			path = "Anchor Annotations";

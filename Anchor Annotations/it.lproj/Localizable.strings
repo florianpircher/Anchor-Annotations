@@ -1,0 +1,11 @@
+/* Title of the Anchor Annotations tab in settings */
+"Anchor Annotations" = "Annotazioni delle ancore";
+
+/* Initial text for a new abbreviation replacement pattern */
+"newText" = "nuovoTesto";
+
+/* Initial text for a new abbreviation */
+"newAbbr" = "nuovaAbbrev";
+
+/* Initial text for a new anchor name */
+"newAnchorName" = "nuovoNomeAncora";
