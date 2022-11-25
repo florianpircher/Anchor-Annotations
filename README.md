@@ -101,7 +101,7 @@ In the *Special Colors* section you can define colors deviating from the main an
 Add an entry and write the full name of an anchor in the *Anchor Name* column.
 In the *Color* column, pick the color for anchors with this name.
 
-User defaults key: `kNameColorsKey` (dictionary with anchor names as keys and color ids like for the *Colors* setting as values)
+User defaults key: `AnchorAnnotationsNameColors` (dictionary with anchor names as keys and color ids like for the *Colors* setting as values)
 
 ## Licenses
 
