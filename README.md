@@ -22,6 +22,13 @@ Anchors that *shine through* from within components appear as downwards pointing
 If there are multiple anchor names that would overlap one another, they are stacked vertically.
 Anchor names that have been shifted are still connected to their original anchor position with a faint line.
 
+## Localization
+
+The plugin is available in German, English, Italian, and Russian (thanks to [Victoria Lopukhina](https://vikavita.com)).
+
+If you would like to localize this plugin into Arabic, Czech, Spanish, French, Japanese, Korean, Portuguese, Turkish, Chinese (simplified), or Chinese (traditional), please contact me.
+Also, if you spot any issues with the existing localizations, let me know and I will fix it.
+
 ## Settings
 
 Anchor Annotations offers a range of configurable settings.

@@ -1,0 +1,11 @@
+/* Title of the Anchor Annotations tab in settings */
+"Anchor Annotations" = "Аннотации для якорей";
+
+/* Initial text for a new abbreviation replacement pattern */
+"newText" = "новыйТекст";
+
+/* Initial text for a new abbreviation */
+"newAbbr" = "новыйСокр";
+
+/* Initial text for a new anchor name */
+"newAnchorName" = "новыйИмяЯкоря";
