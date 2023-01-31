@@ -1,0 +1,11 @@
+/* Title of the Anchor Annotations tab in settings */
+"Anchor Annotations" = "앵커 주석";
+
+/* Initial text for a new abbreviation replacement pattern */
+"newText" = "새텍스트";
+
+/* Initial text for a new abbreviation */
+"newAbbr" = "새약어";
+
+/* Initial text for a new anchor name */
+"newAnchorName" = "새앵커이름";

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,6 +31,9 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <attributedString key="userComments">
+                        <fragment content="Heading of a table of abbreviations"/>
+                    </attributedString>
                 </textField>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ulh-NQ-j23">
                     <rect key="frame" x="20" y="48" width="188" height="95"/>
@@ -84,6 +87,9 @@
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
+                                        <attributedString key="userComments">
+                                            <fragment content="Table column for the expanded text of an abbreviations"/>
+                                        </attributedString>
                                     </tableColumn>
                                     <tableColumn identifier="Abbr" width="67" minWidth="40" maxWidth="1000" id="UlJ-vC-hSt">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Abbr.">
@@ -98,11 +104,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="ahy-H2-2qn">
-                                                <rect key="frame" x="139" y="0.0" width="109" height="24"/>
+                                                <rect key="frame" x="139" y="0.0" width="64" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VfC-aH-dQd">
-                                                        <rect key="frame" x="0.0" y="5" width="109" height="14"/>
+                                                        <rect key="frame" x="0.0" y="5" width="64" height="14"/>
                                                         <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="↑" id="bYe-az-r6v">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -124,6 +130,9 @@
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
+                                        <attributedString key="userComments">
+                                            <fragment content="Table column for the abbreviated text of an abbreviations"/>
+                                        </attributedString>
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
@@ -161,6 +170,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <attributedString key="userComments">
+                        <fragment content="Tooltip for a button"/>
+                    </attributedString>
                     <connections>
                         <action selector="addAbbreviation:" target="-2" id="Ko7-9m-ups"/>
                         <binding destination="tIo-9D-6eQ" name="enabled" keyPath="values.AnchorAnnotationsDisplayAnchorNames" id="MVR-wW-DFb"/>
@@ -175,6 +187,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <attributedString key="userComments">
+                        <fragment content="Tooltip for a button"/>
+                    </attributedString>
                     <connections>
                         <action selector="removeAbbreviation:" target="-2" id="HLa-9h-qar"/>
                     </connections>
@@ -186,6 +201,9 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <attributedString key="userComments">
+                        <fragment content="Heading of a table of colors that are specific to certain anchor names"/>
+                    </attributedString>
                 </textField>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4De-8e-b8M">
                     <rect key="frame" x="216" y="48" width="188" height="95"/>
@@ -239,6 +257,9 @@
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
+                                        <attributedString key="userComments">
+                                            <fragment content="Table column for anchor names"/>
+                                        </attributedString>
                                     </tableColumn>
                                     <tableColumn identifier="Color" width="91.5" minWidth="40" maxWidth="1000" id="ait-Lw-TMK">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Color">
@@ -253,7 +274,7 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="c3x-V3-IN0" customClass="ANANPopupTableCellView">
-                                                <rect key="frame" x="113.5" y="0.0" width="88" height="24"/>
+                                                <rect key="frame" x="114" y="0.0" width="88" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="pLY-c0-RHm">
@@ -279,6 +300,9 @@
                                                 </connections>
                                             </tableCellView>
                                         </prototypeCellViews>
+                                        <attributedString key="userComments">
+                                            <fragment content="Table column for colors"/>
+                                        </attributedString>
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
@@ -310,6 +334,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <attributedString key="userComments">
+                        <fragment content="Tooltip for a button"/>
+                    </attributedString>
                     <connections>
                         <action selector="addColor:" target="-2" id="Jod-Wk-wnS"/>
                     </connections>
@@ -323,6 +350,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <attributedString key="userComments">
+                        <fragment content="Tooltip for a button"/>
+                    </attributedString>
                     <connections>
                         <action selector="removeColor:" target="-2" id="z3O-th-s4N"/>
                     </connections>
@@ -336,6 +366,9 @@
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <attributedString key="userComments">
+                                <fragment content="Checkbox whether to show anchor annotations on layers that are currently inactive"/>
+                            </attributedString>
                             <connections>
                                 <binding destination="tIo-9D-6eQ" name="value" keyPath="values.AnchorAnnotationsIncludeInactiveLayers" id="mUB-Pw-VPk"/>
                             </connections>
@@ -346,6 +379,9 @@
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <attributedString key="userComments">
+                                <fragment content="Checkbox whether to show anchor annotations for anchors nested inside of a group"/>
+                            </attributedString>
                             <connections>
                                 <binding destination="tIo-9D-6eQ" name="value" keyPath="values.AnchorAnnotationsIncludeNestedAnchors" id="gZF-et-BMM"/>
                             </connections>
@@ -356,6 +392,9 @@
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
+                            <attributedString key="userComments">
+                                <fragment content="Checkbox whether to show the names of anchors"/>
+                            </attributedString>
                             <connections>
                                 <binding destination="tIo-9D-6eQ" name="value" keyPath="values.AnchorAnnotationsDisplayAnchorNames" id="gjS-0d-SjT"/>
                             </connections>
@@ -398,6 +437,9 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <attributedString key="userComments">
+                        <fragment content="Label for the font size of the anchor names"/>
+                    </attributedString>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JbH-zN-Gff">
                     <rect key="frame" x="126" y="183" width="39" height="25"/>
@@ -414,6 +456,9 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <attributedString key="userComments">
+                        <fragment content="Label for the color of anchor names"/>
+                    </attributedString>
                 </textField>
                 <button toolTip="Apply abbreviation substitutions regardless of capitalization" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pt3-eT-aX8">
                     <rect key="frame" x="84" y="22" width="124" height="18"/>
@@ -421,6 +466,11 @@
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <attributedString key="userComments">
+                        <fragment>
+                            <string key="content">Checkbox whether to ignore upper and lowercase differences in text. Should be short. Could also be translated from: “Ignore capitalization”</string>
+                        </fragment>
+                    </attributedString>
                     <connections>
                         <binding destination="tIo-9D-6eQ" name="value" keyPath="values.AnchorAnnotationsAbbreviationsAreCaseInsensitive" id="zGS-9s-lIu"/>
                         <binding destination="tIo-9D-6eQ" name="enabled" keyPath="values.AnchorAnnotationsDisplayAnchorNames" id="aSB-Lv-Cuh"/>
@@ -444,6 +494,9 @@
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <attributedString key="userComments">
+                        <fragment content="Label for the font width (condensed, normal, expanded) for the anchor names"/>
+                    </attributedString>
                 </textField>
             </subviews>
             <constraints>

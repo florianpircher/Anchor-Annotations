@@ -1,0 +1,53 @@
+/* Class = "NSButtonCell"; title = "Include inactive layers"; ObjectID = "JBu-rm-ist"; */
+"JBu-rm-ist.title" = "Etkin olmayan katmanları dahil et";
+
+/* Class = "NSButtonCell"; title = "Include nested anchors"; ObjectID = "7iw-5R-HYQ"; */
+"7iw-5R-HYQ.title" = "İç içe geçmiş çıpaları dahil et";
+
+/* Class = "NSButtonCell"; title = "Display anchor names"; ObjectID = "Vt0-H1-B1E"; */
+"Vt0-H1-B1E.title" = "Çıpa isimlerini göster";
+
+/* Class = "NSTextFieldCell"; title = "Font size:"; ObjectID = "3j9-FM-fzq"; */
+"3j9-FM-fzq.title" = "Yazı Boyutu:";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "FOr-Lz-x8t"; */
+"FOr-Lz-x8t.title" = "Genişlik:";
+
+/* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "J5d-lb-dqZ"; */
+"J5d-lb-dqZ.title" = "Renk:";
+
+/* Class = "NSTextFieldCell"; title = "Abbreviations"; ObjectID = "gLw-kz-Yhw"; */
+"gLw-kz-Yhw.title" = "Kısaltmalar";
+
+/* Class = "NSTableColumn"; headerCell.title = "Text"; ObjectID = "8FU-VP-1Cc"; */
+"8FU-VP-1Cc.headerCell.title" = "Metin";
+
+/* Class = "NSTableColumn"; headerCell.title = "Abbr."; ObjectID = "UlJ-vC-hSt"; */
+"UlJ-vC-hSt.headerCell.title" = "Kısalt.";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add abbreviation"; ObjectID = "fnm-PB-eDJ"; */
+"fnm-PB-eDJ.ibShadowedToolTip" = "Kısaltma ekle";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected abbreviations"; ObjectID = "i90-RS-OwI"; */
+"i90-RS-OwI.ibShadowedToolTip" = "Seçilen kısaltmaları sil";
+
+/* Class = "NSButtonCell"; title = "Case insensitive"; ObjectID = "kfw-l3-KdD"; */
+"kfw-l3-KdD.title" = "Büyük/küçük harfe duyarsız";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Apply abbreviation substitutions regardless of capitalization"; ObjectID = "Pt3-eT-aX8"; */
+"Pt3-eT-aX8.ibShadowedToolTip" = "Büyük harf kullanımından bağımsız olarak kısaltma değişiklikleri uygula";
+
+/* Class = "NSTextFieldCell"; title = "Special Colors"; ObjectID = "Y77-CY-BS8"; */
+"Y77-CY-BS8.title" = "Özel Renkler";
+
+/* Class = "NSTableColumn"; headerCell.title = "Anchor Name"; ObjectID = "C5F-pC-gQC"; */
+"C5F-pC-gQC.headerCell.title" = "Çıpa İsmi";
+
+/* Class = "NSTableColumn"; headerCell.title = "Color"; ObjectID = "ait-Lw-TMK"; */
+"ait-Lw-TMK.headerCell.title" = "Renk";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add anchor name color"; ObjectID = "Qg0-Ie-zdh"; */
+"Qg0-Ie-zdh.ibShadowedToolTip" = "Çıpa ismi rengi ekle";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected anchor name colors"; ObjectID = "hCE-8v-aVa"; */
+"hCE-8v-aVa.ibShadowedToolTip" = "Seçili çıpa ismi renklerini sil";

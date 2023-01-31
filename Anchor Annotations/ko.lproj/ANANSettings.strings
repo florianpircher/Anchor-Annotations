@@ -1,0 +1,53 @@
+/* Class = "NSButtonCell"; title = "Include inactive layers"; ObjectID = "JBu-rm-ist"; */
+"JBu-rm-ist.title" = "비활성 레이어 포함";
+
+/* Class = "NSButtonCell"; title = "Include nested anchors"; ObjectID = "7iw-5R-HYQ"; */
+"7iw-5R-HYQ.title" = "중첩된 앵커 포함";
+
+/* Class = "NSButtonCell"; title = "Display anchor names"; ObjectID = "Vt0-H1-B1E"; */
+"Vt0-H1-B1E.title" = "앵커 이름 표시";
+
+/* Class = "NSTextFieldCell"; title = "Font size:"; ObjectID = "3j9-FM-fzq"; */
+"3j9-FM-fzq.title" = "글꼴 크기:";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "FOr-Lz-x8t"; */
+"FOr-Lz-x8t.title" = "너비:";
+
+/* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "J5d-lb-dqZ"; */
+"J5d-lb-dqZ.title" = "색상:";
+
+/* Class = "NSTextFieldCell"; title = "Abbreviations"; ObjectID = "gLw-kz-Yhw"; */
+"gLw-kz-Yhw.title" = "약어";
+
+/* Class = "NSTableColumn"; headerCell.title = "Text"; ObjectID = "8FU-VP-1Cc"; */
+"8FU-VP-1Cc.headerCell.title" = "텍스트";
+
+/* Class = "NSTableColumn"; headerCell.title = "Abbr."; ObjectID = "UlJ-vC-hSt"; */
+"UlJ-vC-hSt.headerCell.title" = "약어";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add abbreviation"; ObjectID = "fnm-PB-eDJ"; */
+"fnm-PB-eDJ.ibShadowedToolTip" = "약어 추가";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected abbreviations"; ObjectID = "i90-RS-OwI"; */
+"i90-RS-OwI.ibShadowedToolTip" = "선택한 약어 삭제";
+
+/* Class = "NSButtonCell"; title = "Case insensitive"; ObjectID = "kfw-l3-KdD"; */
+"kfw-l3-KdD.title" = "대소문자 구분 안 함";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Apply abbreviation substitutions regardless of capitalization"; ObjectID = "Pt3-eT-aX8"; */
+"Pt3-eT-aX8.ibShadowedToolTip" = "대소문자에 관계없이 약어 대체 적용";
+
+/* Class = "NSTextFieldCell"; title = "Special Colors"; ObjectID = "Y77-CY-BS8"; */
+"Y77-CY-BS8.title" = "특수 색상";
+
+/* Class = "NSTableColumn"; headerCell.title = "Anchor Name"; ObjectID = "C5F-pC-gQC"; */
+"C5F-pC-gQC.headerCell.title" = "앵커 이름";
+
+/* Class = "NSTableColumn"; headerCell.title = "Color"; ObjectID = "ait-Lw-TMK"; */
+"ait-Lw-TMK.headerCell.title" = "색상";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add anchor name color"; ObjectID = "Qg0-Ie-zdh"; */
+"Qg0-Ie-zdh.ibShadowedToolTip" = "앵커 이름 색상 추가";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected anchor name colors"; ObjectID = "hCE-8v-aVa"; */
+"hCE-8v-aVa.ibShadowedToolTip" = "선택한 앵커 이름 색상 삭제";

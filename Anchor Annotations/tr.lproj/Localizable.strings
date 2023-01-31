@@ -1,0 +1,11 @@
+/* Title of the Anchor Annotations tab in settings */
+"Anchor Annotations" = "Çıpa Açıklamaları";
+
+/* Initial text for a new abbreviation replacement pattern */
+"newText" = "newText";
+
+/* Initial text for a new abbreviation */
+"newAbbr" = "newAbbr";
+
+/* Initial text for a new anchor name */
+"newAnchorName" = "newAnchorName";

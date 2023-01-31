@@ -1,0 +1,11 @@
+/* Title of the Anchor Annotations tab in settings */
+"Anchor Annotations" = "錨點標註";
+
+/* Initial text for a new abbreviation replacement pattern */
+"newText" = "新文字";
+
+/* Initial text for a new abbreviation */
+"newAbbr" = "新縮寫";
+
+/* Initial text for a new anchor name */
+"newAnchorName" = "新錨點名稱";

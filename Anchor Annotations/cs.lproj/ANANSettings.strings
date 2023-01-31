@@ -1,0 +1,53 @@
+/* Class = "NSButtonCell"; title = "Include inactive layers"; ObjectID = "JBu-rm-ist"; */
+"JBu-rm-ist.title" = "Zahrnout neaktivní vrstvy";
+
+/* Class = "NSButtonCell"; title = "Include nested anchors"; ObjectID = "7iw-5R-HYQ"; */
+"7iw-5R-HYQ.title" = "Zahrnout vnořené kotvy";
+
+/* Class = "NSButtonCell"; title = "Display anchor names"; ObjectID = "Vt0-H1-B1E"; */
+"Vt0-H1-B1E.title" = "Zobrazení názvů kotev";
+
+/* Class = "NSTextFieldCell"; title = "Font size:"; ObjectID = "3j9-FM-fzq"; */
+"3j9-FM-fzq.title" = "Velikost písma:";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "FOr-Lz-x8t"; */
+"FOr-Lz-x8t.title" = "Šířka:";
+
+/* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "J5d-lb-dqZ"; */
+"J5d-lb-dqZ.title" = "Barva:";
+
+/* Class = "NSTextFieldCell"; title = "Abbreviations"; ObjectID = "gLw-kz-Yhw"; */
+"gLw-kz-Yhw.title" = "Zkratky";
+
+/* Class = "NSTableColumn"; headerCell.title = "Text"; ObjectID = "8FU-VP-1Cc"; */
+"8FU-VP-1Cc.headerCell.title" = "Text";
+
+/* Class = "NSTableColumn"; headerCell.title = "Abbr."; ObjectID = "UlJ-vC-hSt"; */
+"UlJ-vC-hSt.headerCell.title" = "Zkr.";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add abbreviation"; ObjectID = "fnm-PB-eDJ"; */
+"fnm-PB-eDJ.ibShadowedToolTip" = "Přidat zkratku";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected abbreviations"; ObjectID = "i90-RS-OwI"; */
+"i90-RS-OwI.ibShadowedToolTip" = "Smazat vybrané zkratky";
+
+/* Class = "NSButtonCell"; title = "Case insensitive"; ObjectID = "kfw-l3-KdD"; */
+"kfw-l3-KdD.title" = "Ignorování kapitalizace";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Apply abbreviation substitutions regardless of capitalization"; ObjectID = "Pt3-eT-aX8"; */
+"Pt3-eT-aX8.ibShadowedToolTip" = "Použít nahrazení zkratek bez ohledu na psaní velkých písmen";
+
+/* Class = "NSTextFieldCell"; title = "Special Colors"; ObjectID = "Y77-CY-BS8"; */
+"Y77-CY-BS8.title" = "Speciální barvy";
+
+/* Class = "NSTableColumn"; headerCell.title = "Anchor Name"; ObjectID = "C5F-pC-gQC"; */
+"C5F-pC-gQC.headerCell.title" = "Název kotvy";
+
+/* Class = "NSTableColumn"; headerCell.title = "Color"; ObjectID = "ait-Lw-TMK"; */
+"ait-Lw-TMK.headerCell.title" = "Barva";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add anchor name color"; ObjectID = "Qg0-Ie-zdh"; */
+"Qg0-Ie-zdh.ibShadowedToolTip" = "Přidat barvu názvu kotvy";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected anchor name colors"; ObjectID = "hCE-8v-aVa"; */
+"hCE-8v-aVa.ibShadowedToolTip" = "Smazat vybrané barvy názvů kotev";

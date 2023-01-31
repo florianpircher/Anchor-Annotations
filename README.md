@@ -24,10 +24,9 @@ Anchor names that have been shifted are still connected to their original anchor
 
 ## Localization
 
-The plugin is available in German, English, Italian, and Russian (thanks to [Victoria Lopukhina](https://vikavita.com)).
+The plugin is available in Arabic, Czech, German, English, Spanish, French, Italian, Japanese, Korean, Portuguese, Russian (thanks [Victoria Lopukhina](https://vikavita.com)), Turkish, Chinese (simplified), and Chinese (traditional).
 
-If you would like to localize this plugin into Arabic, Czech, Spanish, French, Japanese, Korean, Portuguese, Turkish, Chinese (simplified), or Chinese (traditional), please contact me.
-Also, if you spot any issues with the existing localizations, let me know and I will fix it.
+If you spot any issues with the existing localizations, let me know and I will fix them.
 
 ## Settings
 

@@ -1,0 +1,11 @@
+/* Title of the Anchor Annotations tab in settings */
+"Anchor Annotations" = "Poznámky kotvy";
+
+/* Initial text for a new abbreviation replacement pattern */
+"newText" = "novýText";
+
+/* Initial text for a new abbreviation */
+"newAbbr" = "nováZkr";
+
+/* Initial text for a new anchor name */
+"newAnchorName" = "názevNovýKotvy";
