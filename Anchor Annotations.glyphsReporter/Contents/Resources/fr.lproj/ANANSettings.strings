@@ -1,0 +1,53 @@
+/* Class = "NSButtonCell"; title = "Include inactive layers"; ObjectID = "JBu-rm-ist"; */
+"JBu-rm-ist.title" = "Inclure les calques inactifs";
+
+/* Class = "NSButtonCell"; title = "Include nested anchors"; ObjectID = "7iw-5R-HYQ"; */
+"7iw-5R-HYQ.title" = "Inclure les ancres imbriquées";
+
+/* Class = "NSButtonCell"; title = "Display anchor names"; ObjectID = "Vt0-H1-B1E"; */
+"Vt0-H1-B1E.title" = "Afficher les noms des ancres";
+
+/* Class = "NSTextFieldCell"; title = "Font size:"; ObjectID = "3j9-FM-fzq"; */
+"3j9-FM-fzq.title" = "Taille de police :";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "FOr-Lz-x8t"; */
+"FOr-Lz-x8t.title" = "Largeur :";
+
+/* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "J5d-lb-dqZ"; */
+"J5d-lb-dqZ.title" = "Couleur :";
+
+/* Class = "NSTextFieldCell"; title = "Abbreviations"; ObjectID = "gLw-kz-Yhw"; */
+"gLw-kz-Yhw.title" = "Abréviations";
+
+/* Class = "NSTableColumn"; headerCell.title = "Text"; ObjectID = "8FU-VP-1Cc"; */
+"8FU-VP-1Cc.headerCell.title" = "Texte";
+
+/* Class = "NSTableColumn"; headerCell.title = "Abbr."; ObjectID = "UlJ-vC-hSt"; */
+"UlJ-vC-hSt.headerCell.title" = "Abrév.";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add abbreviation"; ObjectID = "fnm-PB-eDJ"; */
+"fnm-PB-eDJ.ibShadowedToolTip" = "Ajouter une abréviation";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected abbreviations"; ObjectID = "i90-RS-OwI"; */
+"i90-RS-OwI.ibShadowedToolTip" = "Supprimer les abréviations sélectionnées";
+
+/* Class = "NSButtonCell"; title = "Case insensitive"; ObjectID = "kfw-l3-KdD"; */
+"kfw-l3-KdD.title" = "Insensible à la casse";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Apply abbreviation substitutions regardless of capitalization"; ObjectID = "Pt3-eT-aX8"; */
+"Pt3-eT-aX8.ibShadowedToolTip" = "Appliquer les substitutions d’abréviations indépendamment de la capitalisation";
+
+/* Class = "NSTextFieldCell"; title = "Special Colors"; ObjectID = "Y77-CY-BS8"; */
+"Y77-CY-BS8.title" = "Couleurs spéciales";
+
+/* Class = "NSTableColumn"; headerCell.title = "Anchor Name"; ObjectID = "C5F-pC-gQC"; */
+"C5F-pC-gQC.headerCell.title" = "Nom de l’ancre";
+
+/* Class = "NSTableColumn"; headerCell.title = "Color"; ObjectID = "ait-Lw-TMK"; */
+"ait-Lw-TMK.headerCell.title" = "Couleur";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add anchor name color"; ObjectID = "Qg0-Ie-zdh"; */
+"Qg0-Ie-zdh.ibShadowedToolTip" = "Ajouter une couleur au nom de l’ancre";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected anchor name colors"; ObjectID = "hCE-8v-aVa"; */
+"hCE-8v-aVa.ibShadowedToolTip" = "Supprimer les couleurs de nom d’ancre sélectionnées";

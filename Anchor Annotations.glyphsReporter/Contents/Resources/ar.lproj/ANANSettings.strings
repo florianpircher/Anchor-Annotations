@@ -1,0 +1,53 @@
+/* Class = "NSButtonCell"; title = "Include inactive layers"; ObjectID = "JBu-rm-ist"; */
+"JBu-rm-ist.title" = "تضمين الطبقات غير النشطة";
+
+/* Class = "NSButtonCell"; title = "Include nested anchors"; ObjectID = "7iw-5R-HYQ"; */
+"7iw-5R-HYQ.title" = "تضمين نقاط الارتساء المتداخلة";
+
+/* Class = "NSButtonCell"; title = "Display anchor names"; ObjectID = "Vt0-H1-B1E"; */
+"Vt0-H1-B1E.title" = "عرض أسماء نقاط الارتساء";
+
+/* Class = "NSTextFieldCell"; title = "Font size:"; ObjectID = "3j9-FM-fzq"; */
+"3j9-FM-fzq.title" = "حجم الخط:";
+
+/* Class = "NSTextFieldCell"; title = "Width:"; ObjectID = "FOr-Lz-x8t"; */
+"FOr-Lz-x8t.title" = "العرض:";
+
+/* Class = "NSTextFieldCell"; title = "Color:"; ObjectID = "J5d-lb-dqZ"; */
+"J5d-lb-dqZ.title" = "اللون:";
+
+/* Class = "NSTextFieldCell"; title = "Abbreviations"; ObjectID = "gLw-kz-Yhw"; */
+"gLw-kz-Yhw.title" = "الاختصارات";
+
+/* Class = "NSTableColumn"; headerCell.title = "Text"; ObjectID = "8FU-VP-1Cc"; */
+"8FU-VP-1Cc.headerCell.title" = "النص";
+
+/* Class = "NSTableColumn"; headerCell.title = "Abbr."; ObjectID = "UlJ-vC-hSt"; */
+"UlJ-vC-hSt.headerCell.title" = "الاختصار";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add abbreviation"; ObjectID = "fnm-PB-eDJ"; */
+"fnm-PB-eDJ.ibShadowedToolTip" = "إضافة اختصار";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected abbreviations"; ObjectID = "i90-RS-OwI"; */
+"i90-RS-OwI.ibShadowedToolTip" = "حذف الاختصارات المحددة";
+
+/* Class = "NSButtonCell"; title = "Case insensitive"; ObjectID = "kfw-l3-KdD"; */
+"kfw-l3-KdD.title" = "غير متحسس لحالة الحرف";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Apply abbreviation substitutions regardless of capitalization"; ObjectID = "Pt3-eT-aX8"; */
+"Pt3-eT-aX8.ibShadowedToolTip" = "تطبيق بدائل الاختصارات بغض النظر عن الكتابة بالأحرف الكبيرة";
+
+/* Class = "NSTextFieldCell"; title = "Special Colors"; ObjectID = "Y77-CY-BS8"; */
+"Y77-CY-BS8.title" = "ألوان خاصة";
+
+/* Class = "NSTableColumn"; headerCell.title = "Anchor Name"; ObjectID = "C5F-pC-gQC"; */
+"C5F-pC-gQC.headerCell.title" = "اسم نقطة الارتساء";
+
+/* Class = "NSTableColumn"; headerCell.title = "Color"; ObjectID = "ait-Lw-TMK"; */
+"ait-Lw-TMK.headerCell.title" = "اللون";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Add anchor name color"; ObjectID = "Qg0-Ie-zdh"; */
+"Qg0-Ie-zdh.ibShadowedToolTip" = "إضافة لون لاسم نقطة الارتساء";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Delete selected anchor name colors"; ObjectID = "hCE-8v-aVa"; */
+"hCE-8v-aVa.ibShadowedToolTip" = "حذف ألوان أسماء نقاط الارتساء المحددة";
