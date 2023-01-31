@@ -32,7 +32,7 @@
 "i90-RS-OwI.ibShadowedToolTip" = "Eliminar las abreviaturas seleccionadas";
 
 /* Class = "NSButtonCell"; title = "Case insensitive"; ObjectID = "kfw-l3-KdD"; */
-"kfw-l3-KdD.title" = "No distinguir mayúsculas de minúsculas";
+"kfw-l3-KdD.title" = "Ignorar capitilización";
 
 /* Class = "NSButton"; ibShadowedToolTip = "Apply abbreviation substitutions regardless of capitalization"; ObjectID = "Pt3-eT-aX8"; */
 "Pt3-eT-aX8.ibShadowedToolTip" = "Aplicar la sustitución por abreviaturas a pesar de las mayúsculas";
