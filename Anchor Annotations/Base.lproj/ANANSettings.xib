@@ -274,11 +274,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="c3x-V3-IN0" customClass="ANANPopupTableCellView">
-                                                <rect key="frame" x="114" y="0.0" width="88" height="24"/>
+                                                <rect key="frame" x="113.5" y="0.0" width="88" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <popUpButton translatesAutoresizingMaskIntoConstraints="NO" id="pLY-c0-RHm">
-                                                        <rect key="frame" x="1" y="12" width="86" height="0.0"/>
+                                                        <rect key="frame" x="-4" y="12" width="91" height="0.0"/>
                                                         <popUpButtonCell key="cell" type="bevel" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" id="TyL-PI-eRG">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="smallSystem"/>
@@ -516,13 +516,13 @@
                 <constraint firstItem="Ulh-NQ-j23" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="MXp-6V-TEf"/>
                 <constraint firstItem="i90-RS-OwI" firstAttribute="leading" secondItem="fnm-PB-eDJ" secondAttribute="trailing" constant="2" id="OCk-0m-C9Z"/>
                 <constraint firstItem="4De-8e-b8M" firstAttribute="leading" secondItem="rpS-u6-oRw" secondAttribute="leading" id="OHg-ZI-YZa"/>
+                <constraint firstItem="4De-8e-b8M" firstAttribute="top" secondItem="Ulh-NQ-j23" secondAttribute="top" id="OaV-aW-qY5"/>
                 <constraint firstItem="Nyp-Ut-73j" firstAttribute="top" secondItem="JbH-zN-Gff" secondAttribute="bottom" constant="20" id="PsX-UZ-WLM"/>
                 <constraint firstItem="i90-RS-OwI" firstAttribute="centerY" secondItem="fnm-PB-eDJ" secondAttribute="centerY" id="Q8q-77-mqf"/>
                 <constraint firstItem="4IA-nx-X0A" firstAttribute="top" secondItem="ykC-hg-AXu" secondAttribute="bottom" constant="12" id="Rbc-yQ-sYl"/>
                 <constraint firstItem="cRm-9D-Ikm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" symbolic="YES" id="Rna-VY-ubf"/>
                 <constraint firstItem="fnm-PB-eDJ" firstAttribute="top" secondItem="Ulh-NQ-j23" secondAttribute="bottom" constant="6" id="Vn9-rR-uNu"/>
                 <constraint firstItem="JbH-zN-Gff" firstAttribute="leading" secondItem="4IA-nx-X0A" secondAttribute="leading" id="W2d-Ve-sa1"/>
-                <constraint firstItem="4De-8e-b8M" firstAttribute="top" secondItem="Wfa-HU-FRK" secondAttribute="top" id="WS6-Xc-rH3"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JbH-zN-Gff" secondAttribute="trailing" constant="20" symbolic="YES" id="XLs-P1-keu"/>
                 <constraint firstItem="cRm-9D-Ikm" firstAttribute="firstBaseline" secondItem="JbH-zN-Gff" secondAttribute="firstBaseline" id="avA-vg-h8i"/>
                 <constraint firstItem="hCE-8v-aVa" firstAttribute="height" secondItem="Qg0-Ie-zdh" secondAttribute="height" id="b7u-lx-UHK"/>
@@ -544,7 +544,6 @@
                 <constraint firstItem="Qg0-Ie-zdh" firstAttribute="leading" secondItem="4De-8e-b8M" secondAttribute="leading" id="quT-5t-GtG"/>
                 <constraint firstItem="ykC-hg-AXu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="sR5-yF-wdV"/>
                 <constraint firstItem="rpS-u6-oRw" firstAttribute="trailing" secondItem="4De-8e-b8M" secondAttribute="trailing" id="tca-iZ-Ogc"/>
-                <constraint firstItem="4De-8e-b8M" firstAttribute="height" secondItem="Ulh-NQ-j23" secondAttribute="height" id="whv-ne-GzP"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fHd-xu-AHb" secondAttribute="trailing" constant="20" symbolic="YES" id="xFi-aM-m2G"/>
                 <constraint firstItem="rpS-u6-oRw" firstAttribute="firstBaseline" secondItem="Nyp-Ut-73j" secondAttribute="firstBaseline" id="xPH-fe-Agd"/>
                 <constraint firstItem="Nyp-Ut-73j" firstAttribute="trailing" secondItem="Ulh-NQ-j23" secondAttribute="trailing" id="xx2-SG-Itr"/>
