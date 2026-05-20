@@ -350,8 +350,7 @@ static NSBundle *pluginBundle;
             }
         ],
         NSFontVariationAttribute: @{
-            // wdth
-            @2003072104: @(_fontWidth),
+            @((NSInteger)'wdth'): @(_fontWidth),
         },
     }];
     NSFont *baseFont = [NSFont fontWithDescriptor:baseFontDescriptor size:0];
@@ -473,7 +472,7 @@ static NSBundle *pluginBundle;
                         if (NSMinY(rect) < NSMaxY(otherRect) && NSMaxY(rect) > NSMinY(otherRect)) {
                             CGFloat delta = NSMaxY(rect) - NSMinY(otherRect);
                             // shift by slightly more so that any rounding errors are mitigated
-                            // (otherwise, the next for loop might detect a miniscule, i.e. rounding error, overlap)
+                            // (otherwise, the next for loop might detect a minuscule, i.e. rounding error, overlap)
                             rect.origin.y -= delta * 1.01;
                             didShift = YES;
                             shiftCount += 1;
