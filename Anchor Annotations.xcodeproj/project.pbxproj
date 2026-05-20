@@ -129,6 +129,7 @@
 				1703C003292C223500A9A24D /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		1703BFB3292C20DB00A9A24D /* Products */ = {
 			isa = PBXGroup;
@@ -448,17 +449,17 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = PZD8TPH82M;
-				DSTROOT = "$(USER_LIBRARY_DIR)/Application Support/Glyphs 4/Plugins";
+				DSTROOT = "$(USER_LIBRARY_DIR)/Application Support/Glyphs 3/Plugins";
 				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Glyphs\\ 3.app/Contents/Frameworks";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright 2021 Florian Pircher";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright 2026 Florian Pircher";
 				INFOPLIST_KEY_NSPrincipalClass = ANANReporter;
 				INSTALL_PATH = /;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.formkunft.Anchor-Annotations";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
@@ -472,16 +473,16 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = PZD8TPH82M;
 				DSTROOT = .;
 				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_APPS_DIR)/Glyphs\\ 3.app/Contents/Frameworks";
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright 2021 Florian Pircher";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright 2026 Florian Pircher";
 				INFOPLIST_KEY_NSPrincipalClass = ANANReporter;
 				INSTALL_PATH = /;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.formkunft.Anchor-Annotations";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
