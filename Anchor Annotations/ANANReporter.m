@@ -22,10 +22,12 @@
 #import <GlyphsCore/GSAnchor.h>
 #import <GlyphsCore/GSGlyphViewControllerProtocol.h>
 #import <GlyphsCore/GSAppDelegateProtocol.h>
+#import <CoreText/CoreText.h>
 #import "ANANSettings.h"
 
 /// Draw layer options key for the current drawing scale.
 static NSString * const kGlyphsDrawOptionScaleKey = @"Scale";
+static const CGFloat kAnnotationBackgroundMiterLimit = 2.0;
 
 static void *includeInactiveLayersContext = &includeInactiveLayersContext;
 static void *includeNestedAnchorsContext = &includeNestedAnchorsContext;
@@ -38,6 +40,79 @@ static void *abbreviationsContext = &abbreviationsContext;
 static void *abbreviationsAreCaseInsensitiveContext = &abbreviationsAreCaseInsensitiveContext;
 
 static NSBundle *pluginBundle;
+
+static CTFontRef ANANCreateRunFont(id fontAttribute) CF_RETURNS_RETAINED {
+    if (fontAttribute == nil) {
+        return NULL;
+    }
+    
+    CFTypeRef fontReference = (__bridge CFTypeRef)fontAttribute;
+    if (CFGetTypeID(fontReference) == CTFontGetTypeID()) {
+        return (CTFontRef)CFRetain(fontReference);
+    }
+    
+    if ([fontAttribute isKindOfClass:[NSFont class]]) {
+        NSFont *font = (NSFont *)fontAttribute;
+        return CTFontCreateWithName((__bridge CFStringRef)font.fontName, font.pointSize, NULL);
+    }
+    
+    return NULL;
+}
+
+static CGPathRef ANANCreateTextPath(NSAttributedString *attributedString, NSPoint origin) CF_RETURNS_RETAINED {
+    if (attributedString.length == 0) {
+        return NULL;
+    }
+    
+    CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)attributedString);
+    CGMutablePathRef textPath = CGPathCreateMutable();
+    CFArrayRef runs = CTLineGetGlyphRuns(line);
+    CGFloat ascent = 0.0;
+    CGFloat descent = 0.0;
+    CGFloat leading = 0.0;
+    CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
+    origin.y += descent;
+    
+    for (CFIndex runIndex = 0; runIndex < CFArrayGetCount(runs); runIndex += 1) {
+        CTRunRef run = CFArrayGetValueAtIndex(runs, runIndex);
+        NSDictionary *attributes = (__bridge NSDictionary *)CTRunGetAttributes(run);
+        CTFontRef font = ANANCreateRunFont(attributes[NSFontAttributeName] ?: attributes[(__bridge NSString *)kCTFontAttributeName]);
+        if (font == NULL) {
+            continue;
+        }
+        
+        CFIndex glyphCount = CTRunGetGlyphCount(run);
+        CGGlyph *glyphs = malloc(sizeof(CGGlyph) * glyphCount);
+        CGPoint *positions = malloc(sizeof(CGPoint) * glyphCount);
+        if (glyphs == NULL || positions == NULL) {
+            free(glyphs);
+            free(positions);
+            CFRelease(font);
+            continue;
+        }
+        
+        CTRunGetGlyphs(run, CFRangeMake(0, 0), glyphs);
+        CTRunGetPositions(run, CFRangeMake(0, 0), positions);
+        
+        for (CFIndex glyphIndex = 0; glyphIndex < glyphCount; glyphIndex += 1) {
+            CGPathRef glyphPath = CTFontCreatePathForGlyph(font, glyphs[glyphIndex], NULL);
+            if (glyphPath == NULL) {
+                continue;
+            }
+            
+            CGAffineTransform transform = CGAffineTransformMakeTranslation(origin.x + positions[glyphIndex].x, origin.y + positions[glyphIndex].y);
+            CGPathAddPath(textPath, &transform, glyphPath);
+            CGPathRelease(glyphPath);
+        }
+        
+        free(glyphs);
+        free(positions);
+        CFRelease(font);
+    }
+    
+    CFRelease(line);
+    return textPath;
+}
 
 @interface ANANReporter ()
 @property (assign) BOOL includeInactiveLayers;
@@ -354,6 +429,7 @@ static NSBundle *pluginBundle;
         },
     }];
     NSFont *baseFont = [NSFont fontWithDescriptor:baseFontDescriptor size:0];
+    NSFont *nestedAnchorFont = [NSFont fontWithDescriptor:[baseFontDescriptor fontDescriptorWithSymbolicTraits:NSFontDescriptorTraitItalic] size:0];
     CGFloat pointSize = baseFont.pointSize;
     
     CGFloat textOffsetX = 3.0 * unit;
@@ -436,7 +512,7 @@ static NSBundle *pluginBundle;
             }
             [path closePath];
             [strokeColor setStroke];
-            path.lineWidth = 2.0 * unit;
+            path.lineWidth = 4.0 * unit;
             [path stroke];
             path.lineWidth = 1.0 * unit;
             [color set];
@@ -445,12 +521,11 @@ static NSBundle *pluginBundle;
         }
         
         if (_displayAnchorNames) {
+            NSFont *font = isNestedAnchor ? nestedAnchorFont : baseFont;
             NSString *label = [self formatAnchorName:anchorName];
-            
             NSAttributedString *annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
-                NSFontAttributeName: baseFont,
-                NSStrokeColorAttributeName: strokeColor,
-                NSStrokeWidthAttributeName: @(unit * (200.0 / pointSize)),
+                NSFontAttributeName: font,
+                NSForegroundColorAttributeName: isNestedAnchor ? [color colorWithAlphaComponent:0.6] : color,
             }];
             
             NSPoint idealPosition = NSMakePoint(position.x + textOffsetX, position.y + textOffsetY);
@@ -498,12 +573,20 @@ static NSBundle *pluginBundle;
             NSPoint textPosition = rect.origin;
             textPosition.y -= insetOriginY;
             
-            [annotation drawAtPoint:textPosition];
-            
-            annotation = [[NSAttributedString alloc] initWithString:label attributes:@{
-                NSFontAttributeName: baseFont,
-                NSForegroundColorAttributeName: color,
-            }];
+            CGPathRef textPath = ANANCreateTextPath(annotation, textPosition);
+            if (textPath != NULL) {
+                CGPathRef backgroundPath = CGPathCreateCopyByStrokingPath(textPath, NULL, 3.5 * unit, kCGLineCapButt, kCGLineJoinMiter, kAnnotationBackgroundMiterLimit);
+                if (backgroundPath != NULL) {
+                    CGContextRef context = [[NSGraphicsContext currentContext] CGContext];
+                    CGContextSaveGState(context);
+                    CGContextAddPath(context, backgroundPath);
+                    [strokeColor setFill];
+                    CGContextFillPath(context);
+                    CGContextRestoreGState(context);
+                    CGPathRelease(backgroundPath);
+                }
+                CGPathRelease(textPath);
+            }
             [annotation drawAtPoint:textPosition];
         }
     }
