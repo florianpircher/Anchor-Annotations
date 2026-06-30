@@ -94,6 +94,7 @@ static NSBundle *pluginBundle;
                                 context:displayAnchorNamesContext];
         _imageName = @"AnchorTemplate";
         _sortID = 100;
+        self.identifier = @"ANANSettings";
     }
     
     return self;
