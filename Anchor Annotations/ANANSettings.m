@@ -46,9 +46,18 @@ static NSBundle *pluginBundle;
 @property (strong) NSMutableArray<ANANAbbreviation *> *abbreviations;
 @property (strong) NSMutableArray<ANANNameColor *> *nameColors;
 @property (assign) BOOL displayAnchorNames;
+
+@property (readonly) NSImage *image;
+@property (readonly) NSString *imageName;
+@property (readonly) NSUInteger sortID;
+
 @end
 
 @implementation ANANSettings
+
+@synthesize image = _image;
+@synthesize imageName = _imageName;
+@synthesize sortID = _sortID;
 
 + (instancetype)sharedSettings {
     static ANANSettings *sharedInstance;
@@ -83,6 +92,8 @@ static NSBundle *pluginBundle;
                              forKeyPath:[@"values." stringByAppendingString:kDisplayAnchorNamesKey]
                                 options:NSKeyValueObservingOptionInitial
                                 context:displayAnchorNamesContext];
+        _imageName = @"AnchorTemplate";
+        _sortID = 100;
     }
     
     return self;
